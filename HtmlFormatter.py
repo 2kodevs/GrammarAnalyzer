@@ -2,6 +2,7 @@ from cmp.pycompiler import Symbol, Epsilon, Sentence, Production, Grammar, Item
 from cmp.functions import ShiftReduceParser
 from cmp.automata import State
 
+
 class HtmlFormatter:
     @staticmethod
     def symbol_to_html(s):
@@ -32,25 +33,14 @@ class HtmlFormatter:
     @staticmethod
     def action_to_html(a):
         action, tag = a
-        return '%s%s' % ('<span style="color: brown">S</span>' if action == ShiftReduceParser.SHIFT else '<span style="color: green">OK</span>' if action == ShiftReduceParser.OK else '',
-                        HtmlFormatter.custom_to_html(tag))
+        if action == ShiftReduceParser.SHIFT:
+            return f'<span style="color: brown">S<sub>{tag}</sub></span>'
+        if action == ShiftReduceParser.OK:
+            return '<span style="color: green">OK</span>'
+        else:
+            return HtmlFormatter.custom_to_html(tag)
 
     dot_to_html = '<span class="grammarDot"> • </span>'
-
-    @staticmethod
-    def draw_rows(coll, headers, symbol):
-        s1 = f'<tr>%s</tr>'
-        s2 = f'<tr class="alt">%s</tr>\n'
-        rh = f'<td>{symbol}</td>'
-        rows = []
-        for s in coll:
-            column = [rh % HtmlFormatter.custom_to_html(s)]
-            for h in headers:
-                c = HtmlFormatter.draw_cell(coll[s], h)
-                column.append(c % ('---' if h not in coll[s] else '<p>%s</p>' % HtmlFormatter.collection_to_html(coll[s][h], '<p></p>')))
-            rows.append(s1 % ''.join(column))
-            s1, s2 = s2, s1
-        return ''.join(rows)
 
     @staticmethod
     def draw_table_head(label, headers):
@@ -63,8 +53,20 @@ class HtmlFormatter:
     @staticmethod
     def draw_table_body(coll, headers, symbol):
         html = f'<tbody>'
-        html += HtmlFormatter.draw_rows(coll, headers, symbol)
-        html += f'</tbody>'
+        s1 = f'<tr>%s</tr>'
+        s2 = f'<tr class="alt">%s</tr>\n'
+        rh = f'<td>{symbol}</td>'
+        rows = []
+        for s in coll:
+            column = [rh % HtmlFormatter.custom_to_html(s)]
+            for h in headers:
+                c = HtmlFormatter.draw_cell(coll[s], h)
+                column.append(c % (
+                    '---' if h not in coll[s] else '<p>%s</p>' % HtmlFormatter.collection_to_html(coll[s][h],
+                                                                                                  '<p></p>')))
+            rows.append(s1 % ''.join(column))
+            s1, s2 = s2, s1
+        html += ''.join(rows) + f'</tbody>'
         return html
 
     @staticmethod
@@ -99,6 +101,10 @@ class HtmlFormatter:
             return HtmlFormatter.custom_to_html(c.state)
         if isinstance(c, tuple):
             return HtmlFormatter.action_to_html(c)
+        if isinstance(c, tuple):
+            return HtmlFormatter.action_to_html(c)
+        if isinstance(c, int):
+            return f'<span>{c}</span>'
         return f'<span style="color: red"><strong>{c}</strong></span>'
 
     @staticmethod
@@ -160,18 +166,6 @@ class HtmlFormatter:
                         </table>'''
 
         return HtmlFormatter.collection_to_html(automaton, HtmlFormatter.eol, nr)
-
-    @staticmethod
-    def action_goto_table_to_html(table, columns, label=''):
-        cs = lambda c: f'<th>{HtmlFormatter.symbol_to_html(c)}</th>'
-        cl = lambda c: f'<p>{HtmlFormatter.custom_to_html(c)}</p>'
-        return f'''<table>
-                    <tr><th>{label}</th>{HtmlFormatter.collection_to_html(columns, HtmlFormatter.eol, cs)}</tr>
-                    {''.join('<tr>' + f'<th>I<sub>{idx}</sub></th>' + ''.join(HtmlFormatter.cell_class(row, symbol) +
-                            (HtmlFormatter.collection_to_html(row[symbol], '', cl) if symbol in row else '-----')  + '</td>'
-                                for symbol in columns) + '</tr>' 
-                        for idx, row in table.items())}
-                    </table>'''
 
     @staticmethod
     def error_message_to_html(msg):
