@@ -1,0 +1,4 @@
+S --> E | epsilon
+E --> E + T | T
+T --> T * F | F
+F --> ( E ) | num

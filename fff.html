@@ -1,0 +1,6148 @@
+<xml encoding="utf-8" version="1.0">
+ <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+ <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+   <title>
+    RESULTADOS
+   </title>
+   <style type="text/css">
+    table {
+        text-align: center;
+        font: normal 12px/150% Arial, Helvetica, sans-serif; 
+        background: #fff; 
+        overflow: hidden; 
+        border: 1px solid #006699; 
+        -webkit-border-radius: 3px; 
+        -moz-border-radius: 3px; 
+        border-radius: 3px;
+        border-radius: 3px 3px 3px 3px; 
+        -moz-border-radius: 3px 3px 3px 3px; 
+        -webkit-border-radius: 3px 3px 3px 3px; 
+      }
+      table td, table th { 
+        text-align: center;
+        padding: 3px 5px; 
+      }
+      table thead th {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+        background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+        color:#FFFFFF; 
+        font-size: 20px; 
+        font-weight: bold; 
+        border-left: 1px solid #0070A8; 
+      } 
+      table thead th:first-child { 
+        border : none; 
+      }
+      table tbody td { 
+        color: #00496B; 
+        border-left: 1px solid #E1EEF4;
+        font-size: 16px;
+        font-weight: normal; 
+      }
+      table tbody td.errorCell { 
+        color: #00496B; 
+        background: rgb(150, 100, 100);
+        border: thin solid #0070A8;
+        font-size: 16px;
+        font-weight: normal; 
+      }
+      table tbody .alt td { 
+        background: #E1EEF4; 
+        color: #00496B; 
+      }
+      table tbody .alt td.errorCell{ 
+        background: rgb(150, 100, 100);
+        border: thin solid #0070A8;
+        color: #00496B; 
+      }
+      table tbody td:first-child { 
+        font-weight: bold;
+        border-left: none; 
+      }
+      table tbody tr:last-child td { 
+        border-bottom: none; 
+      }
+      div.horizontal{
+        display: flex;
+        justify-content: left;
+        align-items: flex-start;
+      }
+      div.containerDiv{
+        overflow-x: auto;
+      }
+      div.section{
+        border-radius: 35px 0px 35px 0px; 
+        -moz-border-radius: 35px 0px 35px 0px; 
+        -webkit-border-radius: 35px 0px 35px 0px;
+        border: thin solid #123456;
+        padding: 8pt;
+        margin: 8pt;
+      }
+      div.sub{
+        border: thin solid #ADADC9;
+        padding: 8pt;
+        margin: 8pt;
+      }
+      div.last{
+        border-radius: 0px 0px 35px 0px; 
+        -moz-border-radius: 0px 0px 35px 0px; 
+        -webkit-border-radius: 0px 0px 35px 0px;
+        border: thin solid #ADADC9;
+        padding: 8pt;
+        margin: 8pt;
+      }
+      h1{
+        border-radius: 35px 0px 0px 0px; 
+        -moz-border-radius: 35px 0px 0px 0px; 
+        -webkit-border-radius: 35px 0px 0px 0px;
+        background-color: #123456;
+        color: #FFFFFF;
+        padding: 5pt;
+        margin: 0pt;
+        text-align-last: 15pt;
+      }
+      h2{
+        background-color: #424242;
+        color: #FFFFFF;
+        padding: 7pt;
+        margin: 0pt;
+      }
+      p{
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+      }
+      .grammarSymbol{
+        font-family: "Courier New" , Courier, monospace;
+        color: #000066;
+        font-weight: bold;
+      }
+      .grammarSymbolSpecial, .grammarEpsilon{
+        font-family: "Courier New" , Courier, monospace;
+        font-weight: bold;
+        font-style: italic;
+        color: #000066;
+      }
+      .grammarDot{
+        font-family: "Courier New" , Courier, monospace;
+        color: #000000;
+      }
+      .grammarArrow{
+        font-family: "Times New Roman" , Times, serif;
+        color: #000000;
+        font-weight: bold;
+        font-size: larger;
+      }
+      .grammarOr, .grammarComma{
+        font-family: "Times New Roman" , Times, serif;
+        color: #000000;
+        font-weight: bold;
+        font-size: larger;
+      }
+   </style>
+  </head>
+  <body>
+   <div class="section" title="Grammar">
+    <h1>
+     Gramática
+    </h1>
+    <div class="sub">
+     <dl>
+      <dt>
+       <strong>
+        Terminales:
+       </strong>
+      </dt>
+      <dd>
+       <p>
+        <span class="grammarSymbol">
+         +
+        </span>
+        ,
+        <span class="grammarSymbol">
+         -
+        </span>
+        ,
+        <span class="grammarSymbol">
+         *
+        </span>
+        ,
+        <span class="grammarSymbol">
+         /
+        </span>
+        ,
+        <span class="grammarSymbol">
+         (
+        </span>
+        ,
+        <span class="grammarSymbol">
+         )
+        </span>
+        ,
+        <span class="grammarSymbol">
+         num
+        </span>
+       </p>
+      </dd>
+      <dt>
+       <strong>
+        No Terminales:
+       </strong>
+      </dt>
+      <dd>
+       <p>
+        <span class="grammarSymbol">
+         E
+        </span>
+        ,
+        <span class="grammarSymbol">
+         X
+        </span>
+        ,
+        <span class="grammarSymbol">
+         T
+        </span>
+        ,
+        <span class="grammarSymbol">
+         Y
+        </span>
+        ,
+        <span class="grammarSymbol">
+         F
+        </span>
+       </p>
+      </dd>
+      <dt>
+       <strong>
+        Producciones:
+       </strong>
+      </dt>
+      <dd>
+       <p>
+        <span class="grammarSymbol">
+         E
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarSymbol">
+         X
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         X
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         +
+        </span>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarSymbol">
+         X
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         -
+        </span>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarSymbol">
+         X
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         ε
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarSymbol">
+         Y
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         Y
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         *
+        </span>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarSymbol">
+         Y
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         /
+        </span>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarSymbol">
+         Y
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         ε
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         (
+        </span>
+        <span class="grammarSymbol">
+         E
+        </span>
+        <span class="grammarSymbol">
+         )
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         num
+        </span>
+       </p>
+      </dd>
+     </dl>
+    </div>
+    <div class="last">
+     <h2>
+      Gramática sin recursividad izquierda, prefijos comunes y produciones innecesarias
+     </h2>
+     <div class="last">
+      NADA
+     </div>
+    </div>
+   </div>
+   <div class="section">
+    <h1>
+     Conjuntos FIRST y FOLLOW
+    </h1>
+    <div class="sub" title="Firsts">
+     <h2>
+      FIRST
+     </h2>
+     <div class="sub">
+      <dl>
+       <dt>
+        <strong>
+         No Terminales:
+        </strong>
+       </dt>
+       <dd>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          E
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          num
+         </span>
+         ,
+         <span class="grammarSymbol">
+          (
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          X
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          -
+         </span>
+         ,
+         <span class="grammarSymbol">
+          +
+         </span>
+         ,
+         <span style="color: red">
+          <strong>
+           ε
+          </strong>
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          T
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          num
+         </span>
+         ,
+         <span class="grammarSymbol">
+          (
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          Y
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          /
+         </span>
+         ,
+         <span class="grammarSymbol">
+          *
+         </span>
+         ,
+         <span style="color: red">
+          <strong>
+           ε
+          </strong>
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          F
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          num
+         </span>
+         ,
+         <span class="grammarSymbol">
+          (
+         </span>
+         }
+        </p>
+       </dd>
+       <dt>
+        <strong>
+         Producciones:
+        </strong>
+       </dt>
+       <dd>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          E
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          T
+         </span>
+         <span class="grammarSymbol">
+          X
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          num
+         </span>
+         ,
+         <span class="grammarSymbol">
+          (
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          X
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          +
+         </span>
+         <span class="grammarSymbol">
+          T
+         </span>
+         <span class="grammarSymbol">
+          X
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          +
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          X
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          -
+         </span>
+         <span class="grammarSymbol">
+          T
+         </span>
+         <span class="grammarSymbol">
+          X
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          -
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          X
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          ε
+         </span>
+         ) = {
+         <span style="color: red">
+          <strong>
+           ε
+          </strong>
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          T
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          F
+         </span>
+         <span class="grammarSymbol">
+          Y
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          num
+         </span>
+         ,
+         <span class="grammarSymbol">
+          (
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          Y
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          *
+         </span>
+         <span class="grammarSymbol">
+          F
+         </span>
+         <span class="grammarSymbol">
+          Y
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          *
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          Y
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          /
+         </span>
+         <span class="grammarSymbol">
+          F
+         </span>
+         <span class="grammarSymbol">
+          Y
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          /
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          Y
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          ε
+         </span>
+         ) = {
+         <span style="color: red">
+          <strong>
+           ε
+          </strong>
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          F
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          (
+         </span>
+         <span class="grammarSymbol">
+          E
+         </span>
+         <span class="grammarSymbol">
+          )
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          (
+         </span>
+         }
+        </p>
+        <p>
+         FIRST(
+         <span class="grammarSymbol">
+          F
+         </span>
+         <span class="grammarArrow">
+          →
+         </span>
+         <span class="grammarSymbol">
+          num
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          num
+         </span>
+         }
+        </p>
+       </dd>
+      </dl>
+     </div>
+    </div>
+    <div class="last" title="Follows">
+     <h2>
+      FOLLOW
+     </h2>
+     <div class="last">
+      <dl>
+       <dt>
+        <strong>
+         No Terminales:
+        </strong>
+       </dt>
+       <dd>
+        <p>
+         FOLLOW(
+         <span class="grammarSymbol">
+          E
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          )
+         </span>
+         ,
+         <span class="grammarSymbol">
+          $
+         </span>
+         }
+        </p>
+        <p>
+         FOLLOW(
+         <span class="grammarSymbol">
+          X
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          )
+         </span>
+         ,
+         <span class="grammarSymbol">
+          $
+         </span>
+         }
+        </p>
+        <p>
+         FOLLOW(
+         <span class="grammarSymbol">
+          T
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          -
+         </span>
+         ,
+         <span class="grammarSymbol">
+          )
+         </span>
+         ,
+         <span class="grammarSymbol">
+          +
+         </span>
+         ,
+         <span class="grammarSymbol">
+          $
+         </span>
+         }
+        </p>
+        <p>
+         FOLLOW(
+         <span class="grammarSymbol">
+          Y
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          -
+         </span>
+         ,
+         <span class="grammarSymbol">
+          )
+         </span>
+         ,
+         <span class="grammarSymbol">
+          +
+         </span>
+         ,
+         <span class="grammarSymbol">
+          $
+         </span>
+         }
+        </p>
+        <p>
+         FOLLOW(
+         <span class="grammarSymbol">
+          F
+         </span>
+         ) = {
+         <span class="grammarSymbol">
+          )
+         </span>
+         ,
+         <span class="grammarSymbol">
+          +
+         </span>
+         ,
+         <span class="grammarSymbol">
+          -
+         </span>
+         ,
+         <span class="grammarSymbol">
+          *
+         </span>
+         ,
+         <span class="grammarSymbol">
+          /
+         </span>
+         ,
+         <span class="grammarSymbol">
+          $
+         </span>
+         }
+        </p>
+       </dd>
+      </dl>
+     </div>
+    </div>
+   </div>
+   <div class="section" title="LL(1)">
+    <h1>
+     Análisis LL(1)
+    </h1>
+    <div class="sub">
+     <h2>
+      Tabla LL(1)
+     </h2>
+     <div class="sub">
+      <table>
+       <thead>
+        <tr>
+         <th>
+          Symbol
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           +
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           -
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           *
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           /
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           (
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           )
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           num
+          </span>
+         </th>
+         <th>
+          <span class="grammarSymbol">
+           $
+          </span>
+         </th>
+        </tr>
+       </thead>
+       <tbody>
+        <tr>
+         <td>
+          <span class="grammarSymbol">
+           E
+          </span>
+         </td>
+         <td title="+">
+          ---
+         </td>
+         <td title="-">
+          ---
+         </td>
+         <td title="*">
+          ---
+         </td>
+         <td title="/">
+          ---
+         </td>
+         <td title="(">
+          <p>
+           <span class="grammarSymbol">
+            E
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            T
+           </span>
+           <span class="grammarSymbol">
+            X
+           </span>
+          </p>
+         </td>
+         <td title=")">
+          ---
+         </td>
+         <td title="num">
+          <p>
+           <span class="grammarSymbol">
+            E
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            T
+           </span>
+           <span class="grammarSymbol">
+            X
+           </span>
+          </p>
+         </td>
+         <td title="$">
+          ---
+         </td>
+        </tr>
+        <tr class="alt">
+         <td>
+          <span class="grammarSymbol">
+           X
+          </span>
+         </td>
+         <td title="+">
+          <p>
+           <span class="grammarSymbol">
+            X
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            +
+           </span>
+           <span class="grammarSymbol">
+            T
+           </span>
+           <span class="grammarSymbol">
+            X
+           </span>
+          </p>
+         </td>
+         <td title="-">
+          <p>
+           <span class="grammarSymbol">
+            X
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            -
+           </span>
+           <span class="grammarSymbol">
+            T
+           </span>
+           <span class="grammarSymbol">
+            X
+           </span>
+          </p>
+         </td>
+         <td title="*">
+          ---
+         </td>
+         <td title="/">
+          ---
+         </td>
+         <td title="(">
+          ---
+         </td>
+         <td title=")">
+          <p>
+           <span class="grammarSymbol">
+            X
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            ε
+           </span>
+          </p>
+         </td>
+         <td title="num">
+          ---
+         </td>
+         <td title="$">
+          <p>
+           <span class="grammarSymbol">
+            X
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            ε
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="grammarSymbol">
+           T
+          </span>
+         </td>
+         <td title="+">
+          ---
+         </td>
+         <td title="-">
+          ---
+         </td>
+         <td title="*">
+          ---
+         </td>
+         <td title="/">
+          ---
+         </td>
+         <td title="(">
+          <p>
+           <span class="grammarSymbol">
+            T
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            F
+           </span>
+           <span class="grammarSymbol">
+            Y
+           </span>
+          </p>
+         </td>
+         <td title=")">
+          ---
+         </td>
+         <td title="num">
+          <p>
+           <span class="grammarSymbol">
+            T
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            F
+           </span>
+           <span class="grammarSymbol">
+            Y
+           </span>
+          </p>
+         </td>
+         <td title="$">
+          ---
+         </td>
+        </tr>
+        <tr class="alt">
+         <td>
+          <span class="grammarSymbol">
+           Y
+          </span>
+         </td>
+         <td title="+">
+          <p>
+           <span class="grammarSymbol">
+            Y
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            ε
+           </span>
+          </p>
+         </td>
+         <td title="-">
+          <p>
+           <span class="grammarSymbol">
+            Y
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            ε
+           </span>
+          </p>
+         </td>
+         <td title="*">
+          <p>
+           <span class="grammarSymbol">
+            Y
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            *
+           </span>
+           <span class="grammarSymbol">
+            F
+           </span>
+           <span class="grammarSymbol">
+            Y
+           </span>
+          </p>
+         </td>
+         <td title="/">
+          <p>
+           <span class="grammarSymbol">
+            Y
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            /
+           </span>
+           <span class="grammarSymbol">
+            F
+           </span>
+           <span class="grammarSymbol">
+            Y
+           </span>
+          </p>
+         </td>
+         <td title="(">
+          ---
+         </td>
+         <td title=")">
+          <p>
+           <span class="grammarSymbol">
+            Y
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            ε
+           </span>
+          </p>
+         </td>
+         <td title="num">
+          ---
+         </td>
+         <td title="$">
+          <p>
+           <span class="grammarSymbol">
+            Y
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            ε
+           </span>
+          </p>
+         </td>
+        </tr>
+        <tr>
+         <td>
+          <span class="grammarSymbol">
+           F
+          </span>
+         </td>
+         <td title="+">
+          ---
+         </td>
+         <td title="-">
+          ---
+         </td>
+         <td title="*">
+          ---
+         </td>
+         <td title="/">
+          ---
+         </td>
+         <td title="(">
+          <p>
+           <span class="grammarSymbol">
+            F
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            (
+           </span>
+           <span class="grammarSymbol">
+            E
+           </span>
+           <span class="grammarSymbol">
+            )
+           </span>
+          </p>
+         </td>
+         <td title=")">
+          ---
+         </td>
+         <td title="num">
+          <p>
+           <span class="grammarSymbol">
+            F
+           </span>
+           <span class="grammarArrow">
+            →
+           </span>
+           <span class="grammarSymbol">
+            num
+           </span>
+          </p>
+         </td>
+         <td title="$">
+          ---
+         </td>
+        </tr>
+       </tbody>
+      </table>
+     </div>
+    </div>
+    <div class="last">
+     <h2>
+      Resultado
+     </h2>
+     <div class="last">
+      Grammar is  LL(1)
+     </div>
+    </div>
+   </div>
+   <div class="section" title="Aumented Grammar">
+    <h1>
+     Gramática aumentada
+    </h1>
+    <div class="last">
+     <dl>
+      <dt>
+       <strong>
+        Terminales:
+       </strong>
+      </dt>
+      <dd>
+       <p>
+        <span class="grammarSymbol">
+         +
+        </span>
+        ,
+        <span class="grammarSymbol">
+         -
+        </span>
+        ,
+        <span class="grammarSymbol">
+         *
+        </span>
+        ,
+        <span class="grammarSymbol">
+         /
+        </span>
+        ,
+        <span class="grammarSymbol">
+         (
+        </span>
+        ,
+        <span class="grammarSymbol">
+         )
+        </span>
+        ,
+        <span class="grammarSymbol">
+         num
+        </span>
+       </p>
+      </dd>
+      <dt>
+       <strong>
+        No Terminales:
+       </strong>
+      </dt>
+      <dd>
+       <p>
+        <span class="grammarSymbol">
+         S'
+        </span>
+        ,
+        <span class="grammarSymbol">
+         E
+        </span>
+        ,
+        <span class="grammarSymbol">
+         X
+        </span>
+        ,
+        <span class="grammarSymbol">
+         T
+        </span>
+        ,
+        <span class="grammarSymbol">
+         Y
+        </span>
+        ,
+        <span class="grammarSymbol">
+         F
+        </span>
+       </p>
+      </dd>
+      <dt>
+       <strong>
+        Producciones:
+       </strong>
+      </dt>
+      <dd>
+       <p>
+        <span class="grammarSymbol">
+         S'
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         E
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         E
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarSymbol">
+         X
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         X
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         +
+        </span>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarSymbol">
+         X
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         -
+        </span>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarSymbol">
+         X
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         ε
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         T
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarSymbol">
+         Y
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         Y
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         *
+        </span>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarSymbol">
+         Y
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         /
+        </span>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarSymbol">
+         Y
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         ε
+        </span>
+       </p>
+       <p>
+        <span class="grammarSymbol">
+         F
+        </span>
+        <span class="grammarArrow">
+         →
+        </span>
+        <span class="grammarSymbol">
+         (
+        </span>
+        <span class="grammarSymbol">
+         E
+        </span>
+        <span class="grammarSymbol">
+         )
+        </span>
+        <span class="grammarOr">
+         |
+        </span>
+        <span class="grammarSymbol">
+         num
+        </span>
+       </p>
+      </dd>
+     </dl>
+    </div>
+   </div>
+   <div class="section" title="SLR(1)">
+    <h1>
+     Análisis SLR(1)
+    </h1>
+    <div class="sub">
+     <h2>
+      Colección de items LR(0)
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <div class="horizontal">
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             0
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              S'
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             1
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             2
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             3
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             4
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             5
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             6
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             7
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             8
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             9
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             10
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             11
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             12
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             13
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             14
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             15
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             16
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             17
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             18
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             19
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             20
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            I
+            <sub>
+             21
+            </sub>
+            :
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            <p class="itemCollection">
+             <span class="grammarSymbol">
+              S'
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarDot">
+              •
+             </span>
+             , {  }
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Autómata LR(0)
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+       <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+       <!-- Generated by graphviz version 2.38.0 (20140413.2041)
+ -->
+       <!-- Title: G Pages: 1 -->
+       <svg height="1659pt" viewbox="7.20 7.20 5186.38 1651.34" width="5194pt" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+        <g class="graph" id="graph0" transform="scale(1 1) rotate(0) translate(11.2 1647.34)">
+         <title>
+          G
+         </title>
+         <polygon fill="white" points="-4,4 -4,-1640.14 5175.18,-1640.14 5175.18,4 -4,4" stroke="none">
+         </polygon>
+         <!-- start -->
+         <g class="node" id="node1">
+          <title>
+           start
+          </title>
+         </g>
+         <!-- 140547978029432 -->
+         <g class="node" id="node2">
+          <title>
+           140547978029432
+          </title>
+          <ellipse cx="278.416" cy="-499.861" fill="none" rx="240.333" ry="240.333" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="278.416" y="-503.661">
+           I0
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="278.416" y="-488.661">
+           (E -&gt; .TX, , S' -&gt; .E, , F -&gt; .num, , F -&gt; .(E), , T -&gt; .FY, )
+          </text>
+         </g>
+         <!-- start&#45;&gt;140547978029432 -->
+         <g class="edge" id="edge44">
+          <title>
+           start-&gt;140547978029432
+          </title>
+          <path d="M1.05035,-499.861C1.83432,-499.861 11.7253,-499.861 27.3381,-499.861" fill="none" stroke="black" stroke-dasharray="5,2">
+          </path>
+          <polygon fill="black" points="27.7685,-503.362 37.7684,-499.861 27.7684,-496.362 27.7685,-503.362" stroke="black">
+          </polygon>
+         </g>
+         <!-- 140547978029488 -->
+         <g class="node" id="node3">
+          <title>
+           140547978029488
+          </title>
+          <ellipse cx="809.199" cy="-777.861" fill="none" rx="245.232" ry="245.232" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="809.199" y="-781.661">
+           I1
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="809.199" y="-766.661">
+           (E -&gt; .TX, , F -&gt; .num, , F -&gt; .(E), , F -&gt; (.E), , T -&gt; .FY, )
+          </text>
+         </g>
+         <!-- 140547978029432&#45;&gt;140547978029488 -->
+         <g class="edge" id="edge39">
+          <title>
+           140547978029432-&gt;140547978029488
+          </title>
+          <path d="M491.445,-611.333C521.389,-627.075 552.265,-643.308 582.455,-659.18" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="580.893,-662.313 591.373,-663.869 584.151,-656.117 580.893,-662.313" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="541.333" y="-642.661">
+           (
+          </text>
+         </g>
+         <!-- 140547978029544 -->
+         <g class="node" id="node4">
+          <title>
+           140547978029544
+          </title>
+          <ellipse cx="3119.07" cy="-1291.86" fill="none" rx="193.995" ry="193.995" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3119.07" y="-1295.66">
+           I2
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3119.07" y="-1280.66">
+           (Y -&gt; ./FY, , Y -&gt; .*FY, , T -&gt; F.Y, , Y -&gt; ., )
+          </text>
+         </g>
+         <!-- 140547978029432&#45;&gt;140547978029544 -->
+         <g class="edge" id="edge40">
+          <title>
+           140547978029432-&gt;140547978029544
+          </title>
+          <path d="M305.604,-738.832C351.805,-1025.48 476.792,-1467.86 808.199,-1467.86 808.199,-1467.86 808.199,-1467.86 2648.24,-1467.86 2749.41,-1467.86 2855.48,-1431.64 2941.19,-1392.05" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2942.9,-1395.12 2950.48,-1387.72 2939.94,-1388.78 2942.9,-1395.12" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-1471.66">
+           F
+          </text>
+         </g>
+         <!-- 140547978029712 -->
+         <g class="node" id="node6">
+          <title>
+           140547978029712
+          </title>
+          <ellipse cx="4797.79" cy="-682.861" fill="none" rx="65.5227" ry="65.5227" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4797.79" y="-686.661">
+           I4
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4797.79" y="-671.661">
+           (F -&gt; num., ,)
+          </text>
+         </g>
+         <!-- 140547978029432&#45;&gt;140547978029712 -->
+         <g class="edge" id="edge43">
+          <title>
+           140547978029432-&gt;140547978029712
+          </title>
+          <path d="M437.758,-319.334C534.365,-229.51 666.322,-139.861 808.199,-139.861 808.199,-139.861 808.199,-139.861 4382.82,-139.861 4616.18,-139.861 4735.43,-460.931 4778.08,-609.296" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4774.8,-610.576 4780.9,-619.243 4781.54,-608.667 4774.8,-610.576" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2647.24" y="-143.661">
+           num
+          </text>
+         </g>
+         <!-- 140547978029656 -->
+         <g class="node" id="node15">
+          <title>
+           140547978029656
+          </title>
+          <ellipse cx="1296.14" cy="-542.861" fill="none" rx="196.651" ry="196.651" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1296.14" y="-546.661">
+           I13
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1296.14" y="-531.661">
+           (X -&gt; .-TX, , X -&gt; ., , E -&gt; T.X, , X -&gt; .+TX, )
+          </text>
+         </g>
+         <!-- 140547978029432&#45;&gt;140547978029656 -->
+         <g class="edge" id="edge42">
+          <title>
+           140547978029432-&gt;140547978029656
+          </title>
+          <path d="M518.962,-494.7C672.314,-493.358 875.415,-495.219 1054.56,-508.861 1066.68,-509.784 1079.11,-510.929 1091.64,-512.235" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1091.38,-515.728 1101.7,-513.316 1092.13,-508.768 1091.38,-515.728" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="809.199" y="-512.661">
+           T
+          </text>
+         </g>
+         <!-- 140547978029600 -->
+         <g class="node" id="node23">
+          <title>
+           140547978029600
+          </title>
+          <ellipse cx="809.199" cy="-55.8614" fill="none" rx="55.7232" ry="55.7232" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="809.199" y="-59.6614">
+           I21
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="809.199" y="-44.6614">
+           (S' -&gt; E., ,)
+          </text>
+         </g>
+         <!-- 140547978029432&#45;&gt;140547978029600 -->
+         <g class="edge" id="edge41">
+          <title>
+           140547978029432-&gt;140547978029600
+          </title>
+          <path d="M381.415,-282.326C421.415,-218.177 473.206,-153.748 536.833,-110.861 598.407,-69.3576 684.479,-57.9158 743.064,-55.3683" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="743.44,-58.8572 753.309,-55.001 743.19,-51.8616 743.44,-58.8572" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="541.333" y="-114.661">
+           E
+          </text>
+         </g>
+         <!-- 140547978029488&#45;&gt;140547978029488 -->
+         <g class="edge" id="edge1">
+          <title>
+           140547978029488-&gt;140547978029488
+          </title>
+          <path d="M776.676,-1021.35C784.72,-1033.84 795.561,-1041.23 809.199,-1041.23 819.64,-1041.23 828.442,-1036.9 835.604,-1029.26" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="838.376,-1031.4 841.721,-1021.35 832.837,-1027.12 838.376,-1031.4" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="809.199" y="-1045.03">
+           (
+          </text>
+         </g>
+         <!-- 140547978029488&#45;&gt;140547978029544 -->
+         <g class="edge" id="edge17">
+          <title>
+           140547978029488-&gt;140547978029544
+          </title>
+          <path d="M933.613,-989.726C1018.46,-1105.62 1143.13,-1225.86 1295.14,-1225.86 1295.14,-1225.86 1295.14,-1225.86 2648.24,-1225.86 2737.68,-1225.86 2835.78,-1237.74 2919.09,-1251.41" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2918.74,-1254.9 2929.18,-1253.09 2919.89,-1248 2918.74,-1254.9" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1969.92" y="-1229.66">
+           F
+          </text>
+         </g>
+         <!-- 140547978029488&#45;&gt;140547978029712 -->
+         <g class="edge" id="edge38">
+          <title>
+           140547978029488-&gt;140547978029712
+          </title>
+          <path d="M993.096,-614.836C1016.35,-587.642 1037.82,-558.31 1054.56,-527.861 1096.58,-451.438 1033.89,-394.246 1099.56,-336.861 1165.33,-279.399 1207.81,-317.861 1295.14,-317.861 1295.14,-317.861 1295.14,-317.861 4382.82,-317.861 4561.29,-317.861 4699.21,-511.089 4761.1,-616.362" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4758.09,-618.142 4766.14,-625.026 4764.14,-614.622 4758.09,-618.142" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2884.93" y="-321.661">
+           num
+          </text>
+         </g>
+         <!-- 140547978030552 -->
+         <g class="node" id="node13">
+          <title>
+           140547978030552
+          </title>
+          <ellipse cx="1296.14" cy="-228.861" fill="none" rx="60.623" ry="60.623" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1296.14" y="-232.661">
+           I11
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1296.14" y="-217.661">
+           (F -&gt; (E.), ,)
+          </text>
+         </g>
+         <!-- 140547978029488&#45;&gt;140547978030552 -->
+         <g class="edge" id="edge19">
+          <title>
+           140547978029488-&gt;140547978030552
+          </title>
+          <path d="M993.555,-615.244C1017.77,-585.551 1039.41,-553.054 1054.56,-518.861 1075.34,-471.992 1039.82,-328.31 1072.56,-288.861 1109.21,-244.71 1174.62,-231.193 1225.08,-227.846" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1225.49,-231.329 1235.29,-227.292 1225.11,-224.339 1225.49,-231.329" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1077.06" y="-292.661">
+           E
+          </text>
+         </g>
+         <!-- 140547978029488&#45;&gt;140547978029656 -->
+         <g class="edge" id="edge37">
+          <title>
+           140547978029488-&gt;140547978029656
+          </title>
+          <path d="M1030.32,-671.191C1056.86,-658.328 1083.77,-645.291 1109.75,-632.703" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1111.42,-635.781 1118.89,-628.27 1108.37,-629.481 1111.42,-635.781" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1077.06" y="-649.661">
+           T
+          </text>
+         </g>
+         <!-- 140547978030160 -->
+         <g class="node" id="node5">
+          <title>
+           140547978030160
+          </title>
+          <ellipse cx="3543.52" cy="-1095.86" fill="none" rx="159.613" ry="159.612" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3543.52" y="-1099.66">
+           I3
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3543.52" y="-1084.66">
+           (F -&gt; .num, , F -&gt; .(E), , Y -&gt; *.FY, )
+          </text>
+         </g>
+         <!-- 140547978029544&#45;&gt;140547978030160 -->
+         <g class="edge" id="edge14">
+          <title>
+           140547978029544-&gt;140547978030160
+          </title>
+          <path d="M3295.25,-1210.58C3326.3,-1196.18 3358.41,-1181.28 3388.8,-1167.18" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="3390.58,-1170.22 3398.18,-1162.83 3387.63,-1163.87 3390.58,-1170.22" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3353.22" y="-1191.66">
+           *
+          </text>
+         </g>
+         <!-- 140547978030272 -->
+         <g class="node" id="node9">
+          <title>
+           140547978030272
+          </title>
+          <ellipse cx="4381.82" cy="-1476.86" fill="none" rx="157.87" ry="157.87" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4381.82" y="-1480.66">
+           I7
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4381.82" y="-1465.66">
+           (Y -&gt; /.FY, , F -&gt; .(E), , F -&gt; .num, )
+          </text>
+         </g>
+         <!-- 140547978029544&#45;&gt;140547978030272 -->
+         <g class="edge" id="edge16">
+          <title>
+           140547978029544-&gt;140547978030272
+          </title>
+          <path d="M3312.37,-1305.83C3426.34,-1315.22 3573.42,-1329.3 3703.33,-1347.86 3879.96,-1373.1 4080.53,-1412.67 4217.31,-1441.33" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4216.95,-1444.83 4227.46,-1443.46 4218.39,-1437.98 4216.95,-1444.83" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3733.83" y="-1357.66">
+           /
+          </text>
+         </g>
+         <!-- 140547978030216 -->
+         <g class="node" id="node12">
+          <title>
+           140547978030216
+          </title>
+          <ellipse cx="3543.52" cy="-1417.86" fill="none" rx="60.623" ry="60.623" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3543.52" y="-1421.66">
+           I10
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3543.52" y="-1406.66">
+           (T -&gt; FY., ,)
+          </text>
+         </g>
+         <!-- 140547978029544&#45;&gt;140547978030216 -->
+         <g class="edge" id="edge15">
+          <title>
+           140547978029544-&gt;140547978030216
+          </title>
+          <path d="M3305.06,-1347.04C3365.62,-1365.1 3429.1,-1384.03 3475.18,-1397.78" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="3474.45,-1401.21 3485.03,-1400.71 3476.45,-1394.5 3474.45,-1401.21" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3353.22" y="-1365.66">
+           Y
+          </text>
+         </g>
+         <!-- 140547978030160&#45;&gt;140547978029488 -->
+         <g class="edge" id="edge2">
+          <title>
+           140547978030160-&gt;140547978029488
+          </title>
+          <path d="M3383.76,-1090.2C3363.22,-1089.65 3342.47,-1089.18 3322.72,-1088.86 3141.72,-1085.98 3096.43,-1086.27 2915.43,-1088.86 2495.52,-1094.86 2390.87,-1115.86 1970.92,-1115.86 1295.14,-1115.86 1295.14,-1115.86 1295.14,-1115.86 1175.6,-1115.86 1064.44,-1045.88 978.79,-969.606" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="980.877,-966.776 971.105,-962.685 976.193,-971.978 980.877,-966.776" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2193.24" y="-1118.66">
+           (
+          </text>
+         </g>
+         <!-- 140547978030160&#45;&gt;140547978029712 -->
+         <g class="edge" id="edge3">
+          <title>
+           140547978030160-&gt;140547978029712
+          </title>
+          <path d="M3651.36,-977.308C3705.29,-917.79 3760.24,-857.79 3764.33,-855.861 3928.99,-778.164 4408.51,-866.477 4582.51,-812.861 4639.31,-795.359 4696.5,-759.526 4737.49,-729.904" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4739.72,-732.608 4745.73,-723.879 4735.59,-726.958 4739.72,-732.608" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4193.64" y="-829.661">
+           num
+          </text>
+         </g>
+         <!-- 140547978030440 -->
+         <g class="node" id="node7">
+          <title>
+           140547978030440
+          </title>
+          <ellipse cx="3963.73" cy="-1063.86" fill="none" rx="199.308" ry="199.308" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3963.73" y="-1067.66">
+           I5
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3963.73" y="-1052.66">
+           (Y -&gt; ./FY, , Y -&gt; *F.Y, , Y -&gt; .*FY, , Y -&gt; ., )
+          </text>
+         </g>
+         <!-- 140547978030160&#45;&gt;140547978030440 -->
+         <g class="edge" id="edge13">
+          <title>
+           140547978030160-&gt;140547978030440
+          </title>
+          <path d="M3702.93,-1083.74C3719.84,-1082.45 3737.22,-1081.12 3754.59,-1079.79" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="3755.11,-1083.26 3764.82,-1079.01 3754.58,-1076.28 3755.11,-1083.26" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3733.83" y="-1084.66">
+           F
+          </text>
+         </g>
+         <!-- 140547978030440&#45;&gt;140547978030160 -->
+         <g class="edge" id="edge4">
+          <title>
+           140547978030440-&gt;140547978030160
+          </title>
+          <path d="M3764.33,-1059.98C3749.77,-1060.63 3735.31,-1061.57 3721.33,-1062.86 3717.8,-1063.19 3714.24,-1063.55 3710.66,-1063.94" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="3710.02,-1060.5 3700.49,-1065.14 3710.83,-1067.45 3710.02,-1060.5" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3733.83" y="-1066.66">
+           *
+          </text>
+         </g>
+         <!-- 140547978030496 -->
+         <g class="node" id="node8">
+          <title>
+           140547978030496
+          </title>
+          <ellipse cx="4381.82" cy="-1063.86" fill="none" rx="67.3507" ry="67.3507" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4381.82" y="-1067.66">
+           I6
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4381.82" y="-1052.66">
+           (Y -&gt; *FY., ,)
+          </text>
+         </g>
+         <!-- 140547978030440&#45;&gt;140547978030496 -->
+         <g class="edge" id="edge5">
+          <title>
+           140547978030440-&gt;140547978030496
+          </title>
+          <path d="M4163.33,-1063.86C4213.55,-1063.86 4264.49,-1063.86 4304.44,-1063.86" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4304.62,-1067.36 4314.62,-1063.86 4304.62,-1060.36 4304.62,-1067.36" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4193.64" y="-1067.66">
+           Y
+          </text>
+         </g>
+         <!-- 140547978030440&#45;&gt;140547978030272 -->
+         <g class="edge" id="edge12">
+          <title>
+           140547978030440-&gt;140547978030272
+          </title>
+          <path d="M4125.19,-1181.31C4153.19,-1204.24 4181.28,-1228.94 4206.14,-1253.86 4232.76,-1280.55 4259.1,-1311.24 4282.95,-1341.16" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4280.33,-1343.49 4289.28,-1349.16 4285.81,-1339.14 4280.33,-1343.49" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4193.64" y="-1257.66">
+           /
+          </text>
+         </g>
+         <!-- 140547978030272&#45;&gt;140547978029488 -->
+         <g class="edge" id="edge6">
+          <title>
+           140547978030272-&gt;140547978029488
+          </title>
+          <path d="M4225.02,-1497.31C4147.01,-1505.87 4051.04,-1513.86 3964.73,-1513.86 2883.93,-1513.86 2883.93,-1513.86 2883.93,-1513.86 2481.57,-1513.86 1437.46,-1425.3 1099.56,-1206.86 1024.65,-1158.43 964.313,-1083.03 918.519,-1008.86" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="921.487,-1007 913.29,-1000.29 915.512,-1010.65 921.487,-1007" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2647.24" y="-1516.66">
+           (
+          </text>
+         </g>
+         <!-- 140547978030272&#45;&gt;140547978029712 -->
+         <g class="edge" id="edge7">
+          <title>
+           140547978030272-&gt;140547978029712
+          </title>
+          <path d="M4455.64,-1337.19C4545.47,-1164.89 4694.55,-878.967 4761.88,-749.821" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4765.07,-751.283 4766.59,-740.797 4758.86,-748.047 4765.07,-751.283" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4570.01" y="-1130.66">
+           num
+          </text>
+         </g>
+         <!-- 140547978030328 -->
+         <g class="node" id="node10">
+          <title>
+           140547978030328
+          </title>
+          <ellipse cx="4797.79" cy="-1438.86" fill="none" rx="197.066" ry="197.066" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4797.79" y="-1442.66">
+           I8
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4797.79" y="-1427.66">
+           (Y -&gt; /F.Y, , Y -&gt; ./FY, , Y -&gt; .*FY, , Y -&gt; ., )
+          </text>
+         </g>
+         <!-- 140547978030272&#45;&gt;140547978030328 -->
+         <g class="edge" id="edge11">
+          <title>
+           140547978030272-&gt;140547978030328
+          </title>
+          <path d="M4535.91,-1442.59C4543.19,-1441.54 4550.42,-1440.62 4557.51,-1439.86 4568.18,-1438.72 4579.14,-1437.8 4590.21,-1437.07" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4590.64,-1440.55 4600.41,-1436.45 4590.22,-1433.56 4590.64,-1440.55" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4570.01" y="-1443.66">
+           F
+          </text>
+         </g>
+         <!-- 140547978030328&#45;&gt;140547978030160 -->
+         <g class="edge" id="edge8">
+          <title>
+           140547978030328-&gt;140547978030160
+          </title>
+          <path d="M4635.44,-1326.2C4618.13,-1317.73 4600.33,-1310.36 4582.51,-1304.86 4234.79,-1197.46 4105.22,-1399.3 3764.33,-1271.86 3729.23,-1258.74 3695.45,-1237.7 3665.33,-1214.65" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="3667.39,-1211.82 3657.35,-1208.43 3663.09,-1217.34 3667.39,-1211.82" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4193.64" y="-1297.66">
+           *
+          </text>
+         </g>
+         <!-- 140547978030328&#45;&gt;140547978030272 -->
+         <g class="edge" id="edge10">
+          <title>
+           140547978030328-&gt;140547978030272
+          </title>
+          <path d="M4601.09,-1456.83C4583.69,-1458.42 4566.18,-1460.03 4549.06,-1461.6" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4548.67,-1458.12 4539.03,-1462.52 4549.31,-1465.09 4548.67,-1458.12" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="4570.01" y="-1463.66">
+           /
+          </text>
+         </g>
+         <!-- 140547978030384 -->
+         <g class="node" id="node11">
+          <title>
+           140547978030384
+          </title>
+          <ellipse cx="5106.13" cy="-1438.86" fill="none" rx="65.1077" ry="65.1077" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="5106.13" y="-1442.66">
+           I9
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="5106.13" y="-1427.66">
+           (Y -&gt; /FY., ,)
+          </text>
+         </g>
+         <!-- 140547978030328&#45;&gt;140547978030384 -->
+         <g class="edge" id="edge9">
+          <title>
+           140547978030328-&gt;140547978030384
+          </title>
+          <path d="M4995.4,-1438.86C5007.8,-1438.86 5019.78,-1438.86 5030.99,-1438.86" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="5031.06,-1442.36 5041.06,-1438.86 5031.06,-1435.36 5031.06,-1442.36" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="5018.07" y="-1442.66">
+           Y
+          </text>
+         </g>
+         <!-- 140547978030608 -->
+         <g class="node" id="node14">
+          <title>
+           140547978030608
+          </title>
+          <ellipse cx="1743.07" cy="-228.861" fill="none" rx="60.623" ry="60.623" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-232.661">
+           I12
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-217.661">
+           (F -&gt; (E)., ,)
+          </text>
+         </g>
+         <!-- 140547978030552&#45;&gt;140547978030608 -->
+         <g class="edge" id="edge18">
+          <title>
+           140547978030552-&gt;140547978030608
+          </title>
+          <path d="M1357.15,-228.861C1438.94,-228.861 1585.17,-228.861 1671.93,-228.861" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1671.95,-232.362 1681.95,-228.861 1671.95,-225.362 1671.95,-232.362" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1515.72" y="-232.661">
+           )
+          </text>
+         </g>
+         <!-- 140547978029768 -->
+         <g class="node" id="node16">
+          <title>
+           140547978029768
+          </title>
+          <ellipse cx="1743.07" cy="-407.861" fill="none" rx="61.5366" ry="61.5366" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-411.661">
+           I14
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-396.661">
+           (E -&gt; TX., ,)
+          </text>
+         </g>
+         <!-- 140547978029656&#45;&gt;140547978029768 -->
+         <g class="edge" id="edge20">
+          <title>
+           140547978029656-&gt;140547978029768
+          </title>
+          <path d="M1481.79,-477.916C1491.55,-474.786 1501.24,-471.749 1510.72,-468.861 1564.76,-452.398 1626.69,-436.209 1672.87,-424.65" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1673.91,-427.997 1682.77,-422.182 1672.22,-421.205 1673.91,-427.997" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1515.72" y="-472.661">
+           X
+          </text>
+         </g>
+         <!-- 140547978029824 -->
+         <g class="node" id="node17">
+          <title>
+           140547978029824
+          </title>
+          <ellipse cx="1743.07" cy="-813.861" fill="none" rx="204.208" ry="204.208" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-817.661">
+           I15
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-802.661">
+           (X -&gt; -.TX, , F -&gt; .num, , F -&gt; .(E), , T -&gt; .FY, )
+          </text>
+         </g>
+         <!-- 140547978029656&#45;&gt;140547978029824 -->
+         <g class="edge" id="edge35">
+          <title>
+           140547978029656-&gt;140547978029824
+          </title>
+          <path d="M1464.4,-644.736C1495.37,-663.603 1527.87,-683.398 1559.28,-702.529" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1557.75,-705.694 1568.11,-707.906 1561.39,-699.715 1557.75,-705.694" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1515.72" y="-681.661">
+           -
+          </text>
+         </g>
+         <!-- 140547978029880 -->
+         <g class="node" id="node20">
+          <title>
+           140547978029880
+          </title>
+          <ellipse cx="2647.24" cy="-586.861" fill="none" rx="207.365" ry="207.365" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2647.24" y="-590.661">
+           I18
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2647.24" y="-575.661">
+           (F -&gt; .num, , F -&gt; .(E), , T -&gt; .FY, , X -&gt; +.TX, )
+          </text>
+         </g>
+         <!-- 140547978029656&#45;&gt;140547978029880 -->
+         <g class="edge" id="edge36">
+          <title>
+           140547978029656-&gt;140547978029880
+          </title>
+          <path d="M1491.42,-520.181C1716.62,-498.288 2098.29,-474.763 2422.06,-521.861 2427.57,-522.664 2433.14,-523.567 2438.74,-524.559" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2438.39,-528.052 2448.86,-526.436 2439.66,-521.169 2438.39,-528.052" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1969.92" y="-497.661">
+           +
+          </text>
+         </g>
+         <!-- 140547978029824&#45;&gt;140547978029488 -->
+         <g class="edge" id="edge32">
+          <title>
+           140547978029824-&gt;140547978029488
+          </title>
+          <path d="M1538.7,-806.005C1399.44,-800.625 1213.71,-793.45 1064.64,-787.691" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1064.56,-784.185 1054.43,-787.296 1064.29,-791.18 1064.56,-784.185" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1296.14" y="-807.661">
+           (
+          </text>
+         </g>
+         <!-- 140547978029824&#45;&gt;140547978029544 -->
+         <g class="edge" id="edge34">
+          <title>
+           140547978029824-&gt;140547978029544
+          </title>
+          <path d="M1868.92,-975.311C1897.68,-1003.01 1930.26,-1028.43 1965.42,-1045.86 2137.18,-1131 2205.16,-1061.26 2394.06,-1093.86 2620.5,-1132.94 2677.17,-1146.36 2897.43,-1211.86 2907.34,-1214.81 2917.46,-1217.96 2927.64,-1221.24" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2926.83,-1224.66 2937.42,-1224.43 2929,-1218 2926.83,-1224.66" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2417.06" y="-1101.66">
+           F
+          </text>
+         </g>
+         <!-- 140547978029824&#45;&gt;140547978029712 -->
+         <g class="edge" id="edge33">
+          <title>
+           140547978029824-&gt;140547978029712
+          </title>
+          <path d="M1897.4,-948.168C1927.33,-968.954 1959.65,-988.065 1992.42,-1001.86 2075.19,-1036.71 2102.44,-1031.86 2192.24,-1031.86 2192.24,-1031.86 2192.24,-1031.86 2885.93,-1031.86 3080.24,-1031.86 3152.07,-1105.79 3322.72,-1012.86 3363.87,-990.45 3343.84,-951.474 3383.72,-926.861 3506.01,-851.38 3574.86,-942.257 3703.33,-877.861 3737.33,-860.821 3730.15,-834.525 3764.33,-817.861 4092.33,-657.97 4544.98,-666.293 4721.79,-676.966" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4721.82,-680.475 4732.02,-677.605 4722.26,-673.489 4721.82,-680.475" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3353.22" y="-1000.66">
+           num
+          </text>
+         </g>
+         <!-- 140547978030048 -->
+         <g class="node" id="node18">
+          <title>
+           140547978030048
+          </title>
+          <ellipse cx="2193.24" cy="-764.861" fill="none" rx="200.637" ry="200.637" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2193.24" y="-768.661">
+           I16
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2193.24" y="-753.661">
+           (X -&gt; .-TX, , X -&gt; ., , X -&gt; -T.X, , X -&gt; .+TX, )
+          </text>
+         </g>
+         <!-- 140547978029824&#45;&gt;140547978030048 -->
+         <g class="edge" id="edge31">
+          <title>
+           140547978029824-&gt;140547978030048
+          </title>
+          <path d="M1946.32,-791.93C1955.82,-790.894 1965.23,-789.867 1974.42,-788.861 1977.35,-788.542 1980.3,-788.219 1983.26,-787.895" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1983.85,-791.351 1993.41,-786.783 1983.09,-784.393 1983.85,-791.351" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1969.92" y="-792.661">
+           T
+          </text>
+         </g>
+         <!-- 140547978030048&#45;&gt;140547978029824 -->
+         <g class="edge" id="edge22">
+          <title>
+           140547978030048-&gt;140547978029824
+          </title>
+          <path d="M1992.37,-771.253C1983.26,-772.029 1974.24,-772.895 1965.42,-773.861 1961.71,-774.268 1957.97,-774.701 1954.2,-775.156" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1953.66,-771.696 1944.18,-776.414 1954.53,-778.642 1953.66,-771.696" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1969.92" y="-777.661">
+           -
+          </text>
+         </g>
+         <!-- 140547978030104 -->
+         <g class="node" id="node19">
+          <title>
+           140547978030104
+          </title>
+          <ellipse cx="2647.24" cy="-877.861" fill="none" rx="65.5227" ry="65.5227" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2647.24" y="-881.661">
+           I17
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2647.24" y="-866.661">
+           (X -&gt; -TX., ,)
+          </text>
+         </g>
+         <!-- 140547978030048&#45;&gt;140547978030104 -->
+         <g class="edge" id="edge21">
+          <title>
+           140547978030048-&gt;140547978030104
+          </title>
+          <path d="M2388.23,-813.357C2453.89,-829.772 2523.22,-847.107 2573.47,-859.668" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2572.7,-863.085 2583.25,-862.115 2574.4,-856.294 2572.7,-863.085" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2417.06" y="-824.661">
+           X
+          </text>
+         </g>
+         <!-- 140547978030048&#45;&gt;140547978029880 -->
+         <g class="edge" id="edge30">
+          <title>
+           140547978030048-&gt;140547978029880
+          </title>
+          <path d="M2380.37,-691.563C2401.57,-683.215 2423.25,-674.678 2444.63,-666.256" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2446.08,-669.447 2454.11,-662.526 2443.52,-662.934 2446.08,-669.447" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2417.06" y="-679.661">
+           +
+          </text>
+         </g>
+         <!-- 140547978029880&#45;&gt;140547978029488 -->
+         <g class="edge" id="edge27">
+          <title>
+           140547978029880-&gt;140547978029488
+          </title>
+          <path d="M2441.72,-558.703C2425.62,-557.16 2409.59,-555.843 2394.06,-554.861 2215.91,-543.604 2170.83,-548.774 1992.42,-554.861 1891.42,-558.308 1613.4,-517.784 1538.72,-585.861 1501.78,-619.529 1536.79,-649.538 1520.72,-696.861 1512.28,-721.716 1514.96,-734.926 1492.72,-748.861 1456.37,-771.629 1243.22,-777.927 1064.65,-779.098" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1064.54,-775.598 1054.56,-779.159 1064.59,-782.598 1064.54,-775.598" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="1743.07" y="-589.661">
+           (
+          </text>
+         </g>
+         <!-- 140547978029880&#45;&gt;140547978029544 -->
+         <g class="edge" id="edge29">
+          <title>
+           140547978029880-&gt;140547978029544
+          </title>
+          <path d="M2800.03,-727.25C2820.31,-751.029 2839.29,-776.579 2854.43,-802.861 2902.92,-887.089 2872.67,-925.577 2915.43,-1012.86 2935.68,-1054.22 2962.07,-1095.92 2989.06,-1134.02" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2986.53,-1136.5 2995.2,-1142.6 2992.23,-1132.43 2986.53,-1136.5" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2884.93" y="-968.661">
+           F
+          </text>
+         </g>
+         <!-- 140547978029880&#45;&gt;140547978029712 -->
+         <g class="edge" id="edge28">
+          <title>
+           140547978029880-&gt;140547978029712
+          </title>
+          <path d="M2854.29,-574.923C2936.34,-571.111 3031.64,-567.861 3118.07,-567.861 3118.07,-567.861 3118.07,-567.861 4382.82,-567.861 4508.26,-567.861 4647.53,-617.485 4728.33,-651.537" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="4727.32,-654.91 4737.89,-655.608 4730.06,-648.47 4727.32,-654.91" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3733.83" y="-571.661">
+           num
+          </text>
+         </g>
+         <!-- 140547978029936 -->
+         <g class="node" id="node21">
+          <title>
+           140547978029936
+          </title>
+          <ellipse cx="3119.07" cy="-799.861" fill="none" rx="203.794" ry="203.794" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3119.07" y="-803.661">
+           I19
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3119.07" y="-788.661">
+           (X -&gt; .-TX, , X -&gt; ., , X -&gt; +T.X, , X -&gt; .+TX, )
+          </text>
+         </g>
+         <!-- 140547978029880&#45;&gt;140547978029936 -->
+         <g class="edge" id="edge26">
+          <title>
+           140547978029880-&gt;140547978029936
+          </title>
+          <path d="M2832.1,-681.014C2845.69,-687.517 2859.23,-693.863 2872.43,-699.861 2887.84,-706.871 2903.9,-713.931 2920.1,-720.882" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2919.07,-724.251 2929.64,-724.961 2921.82,-717.814 2919.07,-724.251" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2884.93" y="-711.661">
+           T
+          </text>
+         </g>
+         <!-- 140547978029936&#45;&gt;140547978029824 -->
+         <g class="edge" id="edge24">
+          <title>
+           140547978029936-&gt;140547978029824
+          </title>
+          <path d="M2971.92,-940.996C2948.51,-956.859 2923.39,-970.615 2897.43,-979.861 2886.96,-983.589 2883.54,-979.893 2872.43,-979.861 2676.87,-979.306 2179.79,-1030.86 1992.42,-974.861 1966.22,-967.031 1940.19,-955.5 1915.37,-942.144" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="1916.74,-938.9 1906.29,-937.144 1913.36,-945.032 1916.74,-938.9" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2417.06" y="-1001.66">
+           -
+          </text>
+         </g>
+         <!-- 140547978029936&#45;&gt;140547978029880 -->
+         <g class="edge" id="edge25">
+          <title>
+           140547978029936-&gt;140547978029880
+          </title>
+          <path d="M2938.82,-704.444C2924.9,-697.644 2910.99,-691.041 2897.43,-684.861 2882.31,-677.973 2866.56,-671.098 2850.64,-664.366" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="2851.83,-661.07 2841.25,-660.421 2849.12,-667.523 2851.83,-661.07" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="2884.93" y="-688.661">
+           +
+          </text>
+         </g>
+         <!-- 140547978029992 -->
+         <g class="node" id="node22">
+          <title>
+           140547978029992
+          </title>
+          <ellipse cx="3543.52" cy="-799.861" fill="none" rx="68.6788" ry="68.6788" stroke="black" stroke-width="2">
+          </ellipse>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3543.52" y="-803.661">
+           I20
+          </text>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3543.52" y="-788.661">
+           (X -&gt; +TX., ,)
+          </text>
+         </g>
+         <!-- 140547978029936&#45;&gt;140547978029992 -->
+         <g class="edge" id="edge23">
+          <title>
+           140547978029936-&gt;140547978029992
+          </title>
+          <path d="M3322.95,-799.861C3373.35,-799.861 3424.4,-799.861 3464.57,-799.861" fill="none" stroke="black">
+          </path>
+          <polygon fill="black" points="3464.8,-803.362 3474.8,-799.861 3464.8,-796.362 3464.8,-803.362" stroke="black">
+          </polygon>
+          <text font-family="Times,serif" font-size="14.00" text-anchor="middle" x="3353.22" y="-803.661">
+           X
+          </text>
+         </g>
+        </g>
+       </svg>
+      </div>
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Tablas ACTION-GOTO
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <div class="horizontal">
+        <table>
+         <thead>
+          <tr>
+           <th>
+            ACTION
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             +
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             -
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             *
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             /
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             (
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             )
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             num
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             $
+            </span>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              0
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               1
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               4
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              1
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               1
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               4
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              2
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               3
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="/">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               7
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              3
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               1
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               4
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              4
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+            </p>
+           </td>
+           <td title="/">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+            </p>
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              num
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              5
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               3
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="/">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               7
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              6
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              *
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              7
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               1
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               4
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              8
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               3
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="/">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               7
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              9
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              Y
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              /
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              10
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarSymbol">
+              Y
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              11
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               12
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              12
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+            </p>
+           </td>
+           <td title="/">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+            </p>
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              F
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              (
+             </span>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarSymbol">
+              )
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              13
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               18
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               15
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              14
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              E
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              15
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               1
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               4
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              16
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               18
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               15
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              17
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              -
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              18
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               1
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               4
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="$">
+            ---
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              19
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               18
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="-">
+            <p>
+             <span style="color: gray">
+              S
+             </span>
+             <span style="color: red">
+              <strong>
+               15
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              ε
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              20
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+            </p>
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span class="grammarSymbol">
+              X
+             </span>
+             <span class="grammarArrow">
+              →
+             </span>
+             <span class="grammarSymbol">
+              +
+             </span>
+             <span class="grammarSymbol">
+              T
+             </span>
+             <span class="grammarSymbol">
+              X
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              21
+             </strong>
+            </span>
+           </td>
+           <td title="+">
+            ---
+           </td>
+           <td title="-">
+            ---
+           </td>
+           <td title="*">
+            ---
+           </td>
+           <td title="/">
+            ---
+           </td>
+           <td title="(">
+            ---
+           </td>
+           <td title=")">
+            ---
+           </td>
+           <td title="num">
+            ---
+           </td>
+           <td title="$">
+            <p>
+             <span style="color: green">
+              OK
+             </span>
+             <span style="color: red">
+              <strong>
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+         </tbody>
+        </table>
+        <table>
+         <thead>
+          <tr>
+           <th>
+            GOTO
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             S'
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             E
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             X
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             T
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             Y
+            </span>
+           </th>
+           <th>
+            <span class="grammarSymbol">
+             F
+            </span>
+           </th>
+          </tr>
+         </thead>
+         <tbody>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              0
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            <p>
+             <span style="color: red">
+              <strong>
+               21
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            <p>
+             <span style="color: red">
+              <strong>
+               13
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            <p>
+             <span style="color: red">
+              <strong>
+               2
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              1
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            <p>
+             <span style="color: red">
+              <strong>
+               11
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            <p>
+             <span style="color: red">
+              <strong>
+               13
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            <p>
+             <span style="color: red">
+              <strong>
+               2
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              2
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            <p>
+             <span style="color: red">
+              <strong>
+               10
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="F">
+            ---
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              3
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            <p>
+             <span style="color: red">
+              <strong>
+               5
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              5
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            <p>
+             <span style="color: red">
+              <strong>
+               6
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="F">
+            ---
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              7
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            <p>
+             <span style="color: red">
+              <strong>
+               8
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              8
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            <p>
+             <span style="color: red">
+              <strong>
+               9
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="F">
+            ---
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              13
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            <p>
+             <span style="color: red">
+              <strong>
+               14
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              15
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            <p>
+             <span style="color: red">
+              <strong>
+               16
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            <p>
+             <span style="color: red">
+              <strong>
+               2
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              16
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            <p>
+             <span style="color: red">
+              <strong>
+               17
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            ---
+           </td>
+          </tr>
+          <tr>
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              18
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            ---
+           </td>
+           <td title="T">
+            <p>
+             <span style="color: red">
+              <strong>
+               19
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            <p>
+             <span style="color: red">
+              <strong>
+               2
+              </strong>
+             </span>
+            </p>
+           </td>
+          </tr>
+          <tr class="alt">
+           <td>
+            I
+            <span style="color: red">
+             <strong>
+              19
+             </strong>
+            </span>
+           </td>
+           <td title="S'">
+            ---
+           </td>
+           <td title="E">
+            ---
+           </td>
+           <td title="X">
+            <p>
+             <span style="color: red">
+              <strong>
+               20
+              </strong>
+             </span>
+            </p>
+           </td>
+           <td title="T">
+            ---
+           </td>
+           <td title="Y">
+            ---
+           </td>
+           <td title="F">
+            ---
+           </td>
+          </tr>
+         </tbody>
+        </table>
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="last">
+     <h2>
+      Resultado
+     </h2>
+     <div class="last">
+      Grammar is  SLR(1)
+     </div>
+    </div>
+   </div>
+   <div class="section" title="LR(1)">
+    <h1>
+     Análisis LR(1)
+    </h1>
+    <div class="sub">
+     <h2>
+      Colección de items LR(1)
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <div class="horizontal">
+        NADA
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Autómata LR(1)
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       NADA
+      </div>
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Tablas ACTION-GOTO
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <div class="horizontal">
+        NADA
+              NADA
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="last">
+     <h2>
+      Resultado
+     </h2>
+     <div class="last">
+      NADA
+     </div>
+    </div>
+   </div>
+   <div class="section" title="LALR(1)">
+    <h1>
+     Análisis LALR(1)
+    </h1>
+    <div class="sub">
+     <h2>
+      Colección de items LALR(1)
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <div class="horizontal">
+        NADA
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Autómata LALR(1)
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       NADA
+      </div>
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Tablas ACTION-GOTO
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       <div class="horizontal">
+        NADA
+              NADA
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="last">
+     <h2>
+      Resultado
+     </h2>
+     <div class="last">
+      NADA
+     </div>
+    </div>
+   </div>
+   <div class="section" title="Regularity">
+    <h1>
+     Análisis de Regularidad
+    </h1>
+    <div class="sub">
+     <h2>
+      Resultado
+     </h2>
+     <div class="sub">
+      NADA
+     </div>
+    </div>
+    <div class="sub">
+     <h2>
+      Autómata
+     </h2>
+     <div class="sub">
+      <div class="containerDiv">
+       NADA
+      </div>
+     </div>
+    </div>
+    <div class="last">
+     <h2>
+      Expresión Regular
+     </h2>
+     <div class="last">
+      NADA
+     </div>
+    </div>
+   </div>
+  </body>
+ </html>
+</xml>

@@ -1,0 +1,332 @@
+<xml version="1.0" encoding="utf-8">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>RESULTADOS</title>
+    <style type="text/css">
+      table {
+        text-align: center;
+        font: normal 12px/150% Arial, Helvetica, sans-serif; 
+        background: #fff; 
+        overflow: hidden; 
+        border: 1px solid #006699; 
+        -webkit-border-radius: 3px; 
+        -moz-border-radius: 3px; 
+        border-radius: 3px;
+        border-radius: 3px 3px 3px 3px; 
+        -moz-border-radius: 3px 3px 3px 3px; 
+        -webkit-border-radius: 3px 3px 3px 3px; 
+      }
+      table td, table th { 
+        text-align: center;
+        padding: 3px 5px; 
+      }
+      table thead th {
+        background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #006699), color-stop(1, #00557F) );
+        background:-moz-linear-gradient( center top, #006699 5%, #00557F 100% );
+        filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+        color:#FFFFFF; 
+        font-size: 20px; 
+        font-weight: bold; 
+        border-left: 1px solid #0070A8; 
+      } 
+      table thead th:first-child { 
+        border : none; 
+      }
+      table tbody td { 
+        color: #00496B; 
+        border-left: 1px solid #E1EEF4;
+        font-size: 16px;
+        font-weight: normal; 
+      }
+      table tbody td.errorCell { 
+        color: #00496B; 
+        background: rgb(150, 100, 100);
+        border: thin solid #0070A8;
+        font-size: 16px;
+        font-weight: normal; 
+      }
+      table tbody .alt td { 
+        background: #E1EEF4; 
+        color: #00496B; 
+      }
+      table tbody .alt td.errorCell{ 
+        background: rgb(150, 100, 100);
+        border: thin solid #0070A8;
+        color: #00496B; 
+      }
+      table tbody td:first-child { 
+        font-weight: bold;
+        border-left: none; 
+      }
+      table tbody tr:last-child td { 
+        border-bottom: none; 
+      }
+      div.horizontal{
+        display: flex;
+        justify-content: left;
+        align-items: flex-start;
+      }
+      div.containerDiv{
+        overflow-x: auto;
+      }
+      div.section{
+        border-radius: 35px 0px 35px 0px; 
+        -moz-border-radius: 35px 0px 35px 0px; 
+        -webkit-border-radius: 35px 0px 35px 0px;
+        border: thin solid #123456;
+        padding: 8pt;
+        margin: 8pt;
+      }
+      div.sub{
+        border: thin solid #ADADC9;
+        padding: 8pt;
+        margin: 8pt;
+      }
+      div.last{
+        border-radius: 0px 0px 35px 0px; 
+        -moz-border-radius: 0px 0px 35px 0px; 
+        -webkit-border-radius: 0px 0px 35px 0px;
+        border: thin solid #ADADC9;
+        padding: 8pt;
+        margin: 8pt;
+      }
+      h1{
+        border-radius: 35px 0px 0px 0px; 
+        -moz-border-radius: 35px 0px 0px 0px; 
+        -webkit-border-radius: 35px 0px 0px 0px;
+        background-color: #123456;
+        color: #FFFFFF;
+        padding: 5pt;
+        margin: 0pt;
+        text-align-last: 15pt;
+      }
+      h2{
+        background-color: #424242;
+        color: #FFFFFF;
+        padding: 7pt;
+        margin: 0pt;
+      }
+      p{
+        white-space: nowrap;
+        margin: 0;
+        padding: 0;
+      }
+      .grammarSymbol{
+        font-family: "Courier New" , Courier, monospace;
+        color: #000066;
+        font-weight: bold;
+      }
+      .grammarSymbolSpecial, .grammarEpsilon{
+        font-family: "Courier New" , Courier, monospace;
+        font-weight: bold;
+        font-style: italic;
+        color: #000066;
+      }
+      .grammarDot{
+        font-family: "Courier New" , Courier, monospace;
+        color: #000000;
+      }
+      .grammarArrow{
+        font-family: "Times New Roman" , Times, serif;
+        color: #000000;
+        font-weight: bold;
+        font-size: larger;
+      }
+      .grammarOr, .grammarComma{
+        font-family: "Times New Roman" , Times, serif;
+        color: #000000;
+        font-weight: bold;
+        font-size: larger;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="section" title="Grammar">
+      <h1>Gram&aacute;tica</h1>
+      <div class="sub">
+          %s
+      </div>
+      <div class="last">
+        <h2>Gram&aacute;tica sin recursividad izquierda, prefijos comunes y produciones innecesarias</h2>
+        <div class="last">
+          NADA
+        </div>
+      </div>
+    </div>
+    <div class="section">
+      <h1>Conjuntos FIRST y FOLLOW</h1>
+      <div class="sub" title="Firsts">
+        <h2>FIRST</h2>
+        <div class="sub">
+          %s
+        </div>
+      </div>
+      <div class="last" title="Follows">
+        <h2>FOLLOW</h2>
+        <div class="last">
+          %s
+        </div>
+      </div>
+    </div>
+    <div class="section" title="LL(1)">
+      <h1>An&aacute;lisis LL(1)</h1>
+      <div class="sub">
+        <h2>Tabla LL(1)</h2>
+        <div class="sub">
+          %s
+        </div>
+      </div>
+      <div class="last">
+        <h2>Resultado</h2>
+        <div class="last">
+          %s
+        </div>
+      </div>
+    </div>
+    <div class="section" title="Aumented Grammar">
+      <h1>Gram&aacute;tica aumentada</h1>
+      <div class="last">
+        %s
+      </div>
+    </div>
+    <div class="section" title="SLR(1)">
+      <h1>An&aacute;lisis SLR(1)</h1>
+      <div class="sub">
+        <h2>Colecci&oacute;n de items LR(0)</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            <div class="horizontal">
+              %s
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Aut&oacute;mata LR(0)</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            %s
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Tablas ACTION-GOTO</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            <div class="horizontal">
+              %s
+              %s
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="last">
+        <h2>Resultado</h2>
+        <div class="last">
+          %s
+        </div>
+      </div>
+    </div>
+    <div class="section" title="LR(1)">
+      <h1>An&aacute;lisis LR(1)</h1>
+      <div class="sub">
+        <h2>Colecci&oacute;n de items LR(1)</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            <div class="horizontal">
+              NADA
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Aut&oacute;mata LR(1)</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            NADA
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Tablas ACTION-GOTO</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            <div class="horizontal">
+              NADA
+              NADA
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="last">
+        <h2>Resultado</h2>
+        <div class="last">
+          NADA
+        </div>
+      </div>
+    </div>
+    <div class="section" title="LALR(1)">
+      <h1>An&aacute;lisis LALR(1)</h1>
+      <div class="sub">
+        <h2>Colecci&oacute;n de items LALR(1)</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            <div class="horizontal">
+              NADA
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Aut&oacute;mata LALR(1)</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            NADA
+          </div>
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Tablas ACTION-GOTO</h2>
+        <div class="sub">
+          <div class="containerDiv">
+            <div class="horizontal">
+              NADA
+              NADA
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="last">
+        <h2>Resultado</h2>
+        <div class="last">
+          NADA
+        </div>
+      </div>
+    </div>
+    <div class="section" title="Regularity">
+      <h1>An&aacute;lisis de Regularidad</h1>
+      <div class="sub">
+        <h2>Resultado</h2>
+        <div class="sub">
+          NADA
+        </div>
+      </div>
+      <div class="sub">
+        <h2>Aut&oacute;mata</h2>
+        <div class="sub">
+          <div class="containerDiv">
+          NADA
+          </div>
+        </div>
+      </div>
+      <div class="last">
+        <h2>Expresi&oacute;n Regular</h2>
+        <div class="last">
+          NADA
+        </div>
+      </div>
+      </div>
+    </div>
+  </body>
+</html>
