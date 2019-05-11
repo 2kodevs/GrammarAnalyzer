@@ -1,7 +1,8 @@
-from cmp.functions import read_grammar, LL1, SLR1Parser
+from cmp.functions import read_grammar, LL1, SLR1Parser, LR1Parser, LALR1Parser, without_recursion, without_common_prefix
 from HtmlFormatter import HtmlFormatter as html
 from bs4 import BeautifulSoup as beauty
 from pprint import pprint
+import json
 
 
 # ------------------READ GRAMMAR----------------
@@ -9,8 +10,16 @@ fd = open("Gramar.txt", 'r')
 data = fd.read()
 fd.close()
 G = read_grammar(data)
+GG = read_grammar(data)
+without_recursion(GG)
+without_common_prefix(GG)
+
 # -----------------------------------------------
 
+# print([len(p.Right) for p in G.startSymbol.productions])
+# g = json.loads(G.to_json)
+# pprint(g)
+# print(type(g))
 
 # print(G.startSymbol, G.startSymbol.productions)
 # G = make_grammar()
@@ -41,6 +50,7 @@ values = []
 is_LL1, M, firsts, follows = LL1(G)
 
 values.append(html.grammar_to_html(G))
+values.append(html.grammar_to_html(GG))
 values.append(html.firsts_to_html(G, firsts))
 values.append(html.follows_to_html(G, follows))
 values.append(html.draw_table(M, 'Symbol', G.terminals + [G.EOF], '%s'))
@@ -63,7 +73,39 @@ values.append(parser.automaton._repr_svg_())
 values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
 values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
 values.append('Grammar is %s SLR(1)' % ['not', ''][is_SLR1])
-pprint(action)
+# pprint(action)
+# --------------------------------------
+
+# -------------LR1--------------------
+parser = LR1Parser(G)
+is_LR1, action, goto = parser.ok, parser.action, parser.goto
+# for i in parser.automaton:
+#     if i.idx not in action:
+#         action[i.idx] = {}
+#     if i.idx not in goto:
+#         goto[i.idx] = {}
+
+values.append(html.items_collection_to_html(parser.automaton))
+values.append(parser.automaton._repr_svg_())
+values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
+values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
+values.append('Grammar is %s LR(1)' % ['not', ''][is_LR1])
+# --------------------------------------
+
+# -------------LR1--------------------
+parser = LALR1Parser(G)
+is_LALR1, action, goto = parser.ok, parser.action, parser.goto
+# for i in parser.automaton:
+#     if i.idx not in action:
+#         action[i.idx] = {}
+#     if i.idx not in goto:
+#         goto[i.idx] = {}
+
+values.append(html.items_collection_to_html(parser.automaton))
+values.append(parser.automaton._repr_svg_())
+values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
+values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
+values.append('Grammar is %s LALR(1)' % ['not', ''][is_LALR1])
 # --------------------------------------
 
 # ----------WRITE FINAL HTML--------------
@@ -80,7 +122,7 @@ for i in range(len(sec)):
     html.append(values[i])
 
 fd = open('results.html', 'w')
-fd.write(beauty(''.join(html), 'html.parser').prettify())
+fd.write(''.join(html))
 fd.close()
 # ----------------------------------------
 

@@ -2,12 +2,14 @@ from cmp.pycompiler import *
 from cmp.automata import *
 from cmp.utils import *
 
+
 class BadTextFormatException(Exception):
     """
     Class for wrong format in texts
     used to convert to a grammar
     """
     pass
+
 
 class GrammarTools:
     @staticmethod

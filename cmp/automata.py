@@ -164,8 +164,8 @@ class State:
         for node in self.epsilon_transitions:
             yield from node._visit(visited)
 
-    def graph(self):
-        G = pydot.Dot(rankdir='LR', margin=0.1)
+    def graph(self, orientation='LR'):
+        G = pydot.Dot(rankdir=orientation, margin=0.1)
         G.add_node(pydot.Node('start', shape='plaintext', label='', width=0, height=0))
 
         visited = set()
@@ -188,9 +188,9 @@ class State:
 
         return G
 
-    def _repr_svg_(self):
+    def _repr_svg_(self, orientation='LR'):
         try:
-            return self.graph().create_svg().decode('utf8')
+            return self.graph(orientation).create_svg().decode('utf8')
         except:
             pass
 

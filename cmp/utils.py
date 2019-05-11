@@ -36,8 +36,8 @@ class ContainerSet:
                 return item
         return None
 
-    def items(self):
-        return self.set.union({u'\N{GREEK SMALL LETTER EPSILON}'} if self.contains_epsilon else {})
+    def items(self, epsilon):
+        return self.set.union({epsilon} if self.contains_epsilon else {})
     
     def __len__(self):
         return len(self.set) + int(self.contains_epsilon)

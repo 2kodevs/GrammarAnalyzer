@@ -112,12 +112,12 @@ def compute_follows(G, firsts):
 
 
 def upd_table(table, symbol, trans, val):
-    ans = not (symbol in table and trans in table[symbol])
     if symbol not in table:
         table[symbol] = {}
     if trans not in table[symbol]:
-        table[symbol][trans] = []
-    table[symbol][trans].append(val)
+        table[symbol][trans] = set()
+    table[symbol][trans].update([val])
+    ans = (len(table[symbol][trans]) == 1)
     return ans
 
 
@@ -199,7 +199,7 @@ class SLR1Parser(ShiftReduceParser):
         firsts = compute_firsts(G)
         follows = compute_follows(G, firsts)
 
-        self.automaton = build_LR0_automaton(G).to_deterministic()
+        self.automaton = build_LR0_automaton(G).to_deterministic(lambda x: "")
         for i, node in enumerate(self.automaton):
             if self.verbose: print(i, node)
             node.idx = i
@@ -310,16 +310,16 @@ def build_LR1_automaton(G):
 
             current_state.add_transition(symbol.Name, next_state)
 
-    automaton.set_formatter(multiline_formatter)
+    automaton.set_formatter(lambda x: "")
     return automaton
 
 
 class LR1Parser(ShiftReduceParser):
     def _build_parsing_table(self):
         self.ok = True
-        G = self.G.AugmentedGrammar(True)
+        G = self.Augmented = self.G.AugmentedGrammar(True)
 
-        automaton = build_LR1_automaton(G)
+        automaton = self.automaton = build_LR1_automaton(G)
         for i, node in enumerate(automaton):
             if self.verbose: print(i, '\t', '\n\t '.join(str(x) for x in node.state), '\n')
             node.idx = i
@@ -364,7 +364,6 @@ def mergue_items_lookaheads(items, others):
 
 def build_LALR1_automaton(G):
     lr1_automaton  = build_LR1_automaton(G)
-
     states = list(lr1_automaton)
     new_states = []
     visited = {}
@@ -399,9 +398,9 @@ def build_LALR1_automaton(G):
 class LALR1Parser(ShiftReduceParser):
     def _build_parsing_table(self):
         self.ok = True
-        G = self.G.AugmentedGrammar(True)
+        G = self.Augmented = self.G.AugmentedGrammar(True)
 
-        automaton = build_LALR1_automaton(G)
+        automaton = self.automaton = build_LALR1_automaton(G)
         for i, node in enumerate(automaton):
             if self.verbose: print(i, '\t', '\n\t '.join(str(x) for x in node.state), '\n')
             node.idx = i
@@ -423,6 +422,99 @@ class LALR1Parser(ShiftReduceParser):
                         self.ok &= upd_table(self.action, idx, next_symbol, (ShiftReduceParser.SHIFT, node[next_symbol.Name][0].idx))
                     else:
                         self.ok &= upd_table(self.goto, idx, next_symbol, node[next_symbol.Name][0].idx)
+
+
+def is_null(G):
+
+    def dfs(symbol):
+        visited.update(symbol)
+        if not isinstance(symbol, Terminal):
+            for production in symbol.productions:
+                for s in production.Right:
+                    if s not in visited:
+                        dfs(s)
+                if all(s in not_null_symbol for s in production.Right):
+                    not_null_symbol.update([s])
+
+    not_null_symbol = set([t for t in G.terminals])
+    visited = set([t for t in G.terminals])
+    not_null_symbol.add(G.EOF)
+    visited.add(G.EOF)
+
+    dfs(G.startSymbol)
+
+    return G.startSymbol in not_null_symbol
+
+
+def without_recursion(G):
+    G.Productions = []
+
+    for nt in G.nonTerminals:
+        bad_prod = [Sentence(*prod.Right[1:]) for prod in nt.productions if len(prod.Right) > 0 and prod.Right[0] == nt]
+        good_prod = [Sentence(*prod.Right) for prod in nt.productions if len(prod.Right) == 0 or prod.Right[0] != nt]
+
+        if len(bad_prod) > 0:
+            nt.productions = []
+            s_new = G.NonTerminal(f"{nt.Name}<sub>0</sub>")
+
+            for prod in good_prod:
+                nt %= prod + s_new
+
+            for prod in bad_prod:
+                s_new %= prod + s_new
+
+            s_new %= G.Epsilon
+        else:
+            G.Productions.extend(nt.productions)
+
+
+def without_common_prefix(G: Grammar):
+    G.Productions = []
+    number = {nt.Name: 1 for nt in G.nonTerminals}
+
+    pending = G.nonTerminals.copy()
+    while pending:
+        nt = pending.pop()
+        prod = nt.productions.copy()
+        nt.productions = []
+        solved = []
+
+        for i, p1 in enumerate(prod):
+            if p1 not in solved:
+                solved.append(p1)
+                common = [p1]
+                prefix = len(p1.Right)
+
+                for p2 in prod[i + 1:]:
+                    sz = 0
+                    for x, y in zip(p1.Right, p2.Right):
+                        if x == y:
+                            sz += 1
+                        else:
+                            break
+                    if sz > 0:
+                        solved.append(p2)
+                        common.append(p2)
+                        prefix = min(prefix, sz)
+
+                if len(common) > 1:
+                    try:
+                        name = nt.Name[:nt.Name.index('<sub>')]
+                    except:
+                        name = nt.Name
+                    s_new = G.NonTerminal(f'{name}<sub>{number[name]}</sub>')
+                    pending.append(s_new)
+                    number[name] += 1
+
+                    nt %= Sentence(*p1.Right[:prefix]) + s_new
+                    for p3 in common:
+                        if len(p3.Right) == prefix:
+                            s_new %= G.Epsilon
+                        else:
+                            s_new %= Sentence(*p3.Right[prefix:])
+                else:
+                    nt %= p1.Right
+
 
 
 

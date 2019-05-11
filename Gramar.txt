@@ -1,5 +1,1 @@
-E --> T X
-X --> + T X | - T X | epsilon
-T --> F Y
-Y --> * F Y | / F Y | epsilon
-F --> ( E ) | num
+A --> a b c | a b | a

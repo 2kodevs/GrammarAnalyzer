@@ -130,8 +130,8 @@ class HtmlFormatter:
 
     @staticmethod
     def firsts_to_html(G, firsts):
-        sf = lambda s: '<p>FIRST(%s) = { %s }</p>' % (HtmlFormatter.symbol_to_html(s), HtmlFormatter.collection_to_html(firsts[s].items()))
-        pf = lambda p: '<p>FIRST(%s) = { %s }</p>' % (HtmlFormatter.production_to_html(p), HtmlFormatter.collection_to_html(firsts[p.Right].items()))
+        sf = lambda s: '<p>FIRST(%s) = { %s }</p>' % (HtmlFormatter.symbol_to_html(s), HtmlFormatter.collection_to_html(firsts[s].items(G.Epsilon)))
+        pf = lambda p: '<p>FIRST(%s) = { %s }</p>' % (HtmlFormatter.production_to_html(p), HtmlFormatter.collection_to_html(firsts[p.Right].items(G.Epsilon)))
 
         return f'''<dl>
                 <dt><strong>No Terminales:</strong></dt> 
