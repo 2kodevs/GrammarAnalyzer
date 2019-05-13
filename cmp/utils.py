@@ -141,10 +141,16 @@ class ShiftReduceParser:
             if self.verbose: print(stack, w[cursor:])
 
             # Your code here!!! (Detect error)
-            if not (state, lookahead) in self.action:
+            try:
+                if state not in self.action or lookahead not in self.action[state]:
+                    return None
+            except:
+                print(state)
+                print(self.action)
+                print(lookahead)
                 return None
 
-            action, tag = self.action[state, lookahead]
+            action, tag = list(self.action[state][lookahead])[0]
             # Your code here!!! (Shift case)
             if action is ShiftReduceParser.SHIFT:
                 stack.append(tag)
@@ -152,7 +158,7 @@ class ShiftReduceParser:
             # Your code here!!! (Reduce case)
             elif action is ShiftReduceParser.REDUCE:
                 stack = stack[:-len(tag.Right)]
-                stack.append(self.goto[stack[-1], tag.Left])
+                stack.append(list(self.goto[stack[-1]][tag.Left])[0])
                 output.append(tag)
             # Your code here!!! (OK case)
             elif action is ShiftReduceParser.OK:

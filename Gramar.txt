@@ -1,1 +1,2 @@
-A --> a b c | a b | a
+A --> a A | B
+B --> b B | b

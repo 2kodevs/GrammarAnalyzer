@@ -1,4 +1,4 @@
-from cmp.functions import read_grammar, LL1, SLR1Parser, LR1Parser, LALR1Parser, without_recursion, without_common_prefix
+from cmp.functions import read_grammar, LL1, SLR1Parser, LR1Parser, LALR1Parser, without_recursion, without_common_prefix, derivation_tree
 from HtmlFormatter import HtmlFormatter as html
 from bs4 import BeautifulSoup as beauty
 from pprint import pprint
@@ -76,6 +76,15 @@ values.append('Grammar is %s SLR(1)' % ['not', ''][is_SLR1])
 # pprint(action)
 # --------------------------------------
 
+c = 'a a a b b b b b b'
+d = {}
+sym = list(map(lambda x: ([s for s in G.nonTerminals if s.Name == x] + [s for s in G.terminals if s.Name == x])[0], c.split()))
+sym.append(G.EOF)
+print(sym)
+derivation = parser(sym)
+derivation.reverse()
+tree = derivation_tree(derivation)._repr_svg_('TD')
+
 # -------------LR1--------------------
 parser = LR1Parser(G)
 is_LR1, action, goto = parser.ok, parser.action, parser.goto
@@ -123,6 +132,7 @@ for i in range(len(sec)):
 
 fd = open('results.html', 'w')
 fd.write(''.join(html))
+fd.write(tree)
 fd.close()
 # ----------------------------------------
 

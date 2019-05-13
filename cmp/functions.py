@@ -4,26 +4,40 @@ from cmp.utils import *
 
 
 def read_grammar(text: str):
-        terminals, nonTerminals, productions = [], [], []
 
-        lines = text.split('\n')
+    def unique(l):
+        l = l.copy()
+        s = set()
+        while True:
+            if not l:
+                raise StopIteration()
+            if l[0] not in s:
+                yield l[0]
+                s.add(l[0])
+            l.pop(0)
 
-        for prod in lines:
-            head, sentences = prod.split('-->')
+    terminals, nonTerminals, productions = [], [], []
 
-            head, = head.split()
-            nonTerminals.append(head)
+    lines = text.split('\n')
+    for _ in range(lines.count('')):
+        lines.remove('')
 
-            for sent in sentences.split('|'):
-                productions.append({'Head': head, 'Body': list(sent.split())})
-                terminals.extend(productions[-1]['Body'])
+    for prod in lines:
+        head, sentences = prod.split('-->')
 
-        d = dict()
-        d['NonTerminals'] = [symbol for symbol in nonTerminals]
-        d['Terminals'] = [symbol for symbol in terminals if symbol not in nonTerminals and symbol != 'epsilon']
-        d['Productions'] = productions
+        head, = head.split()
+        nonTerminals.append(head)
 
-        return Grammar.from_json(json.dumps(d))
+        for sent in sentences.split('|'):
+            productions.append({'Head': head, 'Body': list(sent.split())})
+            terminals.extend(productions[-1]['Body'])
+
+    d = dict()
+    d['NonTerminals'] = [symbol for symbol in unique(nonTerminals)]
+    d['Terminals'] = [symbol for symbol in unique(terminals) if symbol not in nonTerminals and symbol != 'epsilon']
+    d['Productions'] = productions
+
+    return Grammar.from_json(json.dumps(d))
 
 
 def compute_local_first(firsts, alpha):
@@ -516,6 +530,30 @@ def without_common_prefix(G: Grammar):
                     nt %= p1.Right
 
 
+def derivation_tree(d):
+
+    def add_trans(cur, transitions):
+        for symbol in transitions:
+            if symbol.IsTerminal:
+                cur.add_transition('', State(symbol.Name, True))
+            else:
+                s = State(symbol.Name, True)
+                try:
+                    old[symbol].append(s)
+                except KeyError:
+                    old[symbol] = [s]
+                cur.add_transition('', s)
+
+    p1 = d[0]
+    old = {}
+    root = State(p1.Left.Name, True)
+    add_trans(root, p1.Right)
+
+    for p in d[1:]:
+        node = old[p.Left].pop()
+        add_trans(node, p.Right)
+
+    return root
 
 
 
