@@ -1,4 +1,5 @@
-from cmp.functions import read_grammar, LL1, SLR1Parser, LR1Parser, LALR1Parser, without_recursion, without_common_prefix, derivation_tree
+from cmp.functions import read_grammar, LL1, SLR1Parser, LR1Parser, LALR1Parser, action_goto_conflict
+from cmp.functions import without_recursion, without_common_prefix, derivation_tree, regex_analizer, ll1_conflict
 from HtmlFormatter import HtmlFormatter as html
 from bs4 import BeautifulSoup as beauty
 from pprint import pprint
@@ -43,7 +44,7 @@ without_common_prefix(GG)
 #print(is_SLR1)
 
 # ------DATA LIST--------
-values = []
+values, conflict = [], ''
 # -----------------------
 
 # -------LL1 + FIRST + FOLLOW + GRAMMAR-------
@@ -54,17 +55,24 @@ values.append(html.grammar_to_html(GG))
 values.append(html.firsts_to_html(G, firsts))
 values.append(html.follows_to_html(G, follows))
 values.append(html.draw_table(M, 'Symbol', G.terminals + [G.EOF], '%s'))
-values.append('Grammar is %s LL(1)' % ['not', ''][is_LL1])
+
+if not is_LL1:
+    conflict = ll1_conflict(G, M)
+
+values.append('Grammar is %s LL(1) %s' % (['not', ''][is_LL1], [f'-- conflict: {conflict}', ''][is_LL1]))
 # ---------------------------------------------
 
 # -------------SLR1--------------------
 parser = SLR1Parser(G)
 is_SLR1, action, goto = parser.ok, parser.action, parser.goto
+action1, goto1 = action, goto
+# pprint(action)
 # for i in parser.automaton:
 #     if i.idx not in action:
 #         action[i.idx] = {}
 #     if i.idx not in goto:
 #         goto[i.idx] = {}
+
 
 values.append(html.grammar_to_html(parser.Augmented))
 
@@ -72,18 +80,22 @@ values.append(html.items_collection_to_html(parser.automaton))
 values.append(parser.automaton._repr_svg_())
 values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
 values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
-values.append('Grammar is %s SLR(1)' % ['not', ''][is_SLR1])
+
+if not is_SLR1:
+    conflict = action_goto_conflict(action, goto)
+
+values.append('Grammar is %s SLR(1) %s' % (['not', ''][is_SLR1], [f'-- conflict: {conflict}', ''][is_SLR1]))
 # pprint(action)
 # --------------------------------------
 
-c = 'a a a b b b b b b'
-d = {}
-sym = list(map(lambda x: ([s for s in G.nonTerminals if s.Name == x] + [s for s in G.terminals if s.Name == x])[0], c.split()))
-sym.append(G.EOF)
-print(sym)
-derivation = parser(sym)
-derivation.reverse()
-tree = derivation_tree(derivation)._repr_svg_('TD')
+# c = 'num + num + ( num * num )'
+# d = {}
+# sym = list(map(lambda x: ([s for s in G.nonTerminals if s.Name == x] + [s for s in G.terminals if s.Name == x])[0], c.split()))
+# sym.append(G.EOF)
+# derivation = parser(sym)
+# derivation.reverse()
+# tree = derivation_tree(derivation)._repr_svg_('TD')
+tree = ''
 
 # -------------LR1--------------------
 parser = LR1Parser(G)
@@ -98,7 +110,11 @@ values.append(html.items_collection_to_html(parser.automaton))
 values.append(parser.automaton._repr_svg_())
 values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
 values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
-values.append('Grammar is %s LR(1)' % ['not', ''][is_LR1])
+
+if not is_LR1:
+    conflict = action_goto_conflict(action, goto)
+
+values.append('Grammar is %s LR(1) %s' % (['not', ''][is_LR1], [f'-- conflict: {conflict}', ''][is_LR1]))
 # --------------------------------------
 
 # -------------LR1--------------------
@@ -114,8 +130,22 @@ values.append(html.items_collection_to_html(parser.automaton))
 values.append(parser.automaton._repr_svg_())
 values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
 values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
-values.append('Grammar is %s LALR(1)' % ['not', ''][is_LALR1])
+
+if not is_LALR1:
+    conflict = action_goto_conflict(action, goto)
+
+values.append('Grammar is %s LALR(1) %s' % (['not', ''][is_LALR1], [f'-- conflict: {conflict}', ''][is_LALR1]))
 # --------------------------------------
+
+# -----------Regularity-------------------
+is_regular, automaton, regex = regex_analizer(G)
+values.append('Grammar is %s Regular' % ['not', ''][is_regular])
+if is_regular:
+    values.append(automaton._repr_svg_())
+else:
+    values.append(automaton)
+values.append(regex)
+
 
 # ----------WRITE FINAL HTML--------------
 values.append('')
@@ -123,6 +153,8 @@ values.append('')
 fd = open("template.html", 'r', encoding='UTF-8')
 data = fd.read()
 fd.close()
+
+
 
 sec = data.split('%s')
 html = []
@@ -135,4 +167,6 @@ fd.write(''.join(html))
 fd.write(tree)
 fd.close()
 # ----------------------------------------
+
+
 

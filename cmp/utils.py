@@ -157,7 +157,8 @@ class ShiftReduceParser:
                 cursor += 1
             # Your code here!!! (Reduce case)
             elif action is ShiftReduceParser.REDUCE:
-                stack = stack[:-len(tag.Right)]
+                if len(tag.Right):
+                    stack = stack[:-len(tag.Right)]
                 stack.append(list(self.goto[stack[-1]][tag.Left])[0])
                 output.append(tag)
             # Your code here!!! (OK case)

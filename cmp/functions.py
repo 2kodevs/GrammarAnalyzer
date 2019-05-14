@@ -5,16 +5,16 @@ from cmp.utils import *
 
 def read_grammar(text: str):
 
-    def unique(l):
-        l = l.copy()
+    def unique(data):
+        data = data.copy()
         s = set()
         while True:
-            if not l:
+            if not data:
                 raise StopIteration()
-            if l[0] not in s:
-                yield l[0]
-                s.add(l[0])
-            l.pop(0)
+            if data[0] not in s:
+                yield data[0]
+                s.add(data[0])
+            data.pop(0)
 
     terminals, nonTerminals, productions = [], [], []
 
@@ -463,7 +463,8 @@ def is_null(G):
 def without_recursion(G):
     G.Productions = []
 
-    for nt in G.nonTerminals:
+    nonTerminals = G.nonTerminals.copy()
+    for nt in nonTerminals:
         bad_prod = [Sentence(*prod.Right[1:]) for prod in nt.productions if len(prod.Right) > 0 and prod.Right[0] == nt]
         good_prod = [Sentence(*prod.Right) for prod in nt.productions if len(prod.Right) == 0 or prod.Right[0] != nt]
 
@@ -535,14 +536,16 @@ def derivation_tree(d):
     def add_trans(cur, transitions):
         for symbol in transitions:
             if symbol.IsTerminal:
-                cur.add_transition('', State(symbol.Name, True))
+                cur.add_transition('', State(symbol, True))
             else:
-                s = State(symbol.Name, True)
+                s = State(symbol, True)
                 try:
                     old[symbol].append(s)
                 except KeyError:
                     old[symbol] = [s]
                 cur.add_transition('', s)
+        if len(transitions) == 0:
+            cur.add_transition('', State(transitions, True))
 
     p1 = d[0]
     old = {}
@@ -556,7 +559,201 @@ def derivation_tree(d):
     return root
 
 
+def verify_regularity(G):
+
+    def check(prod, epsilon):
+        sz = len(prod)
+        if sz == 0:
+            return epsilon
+        if sz == 1:
+            return prod[0].IsTerminal
+        if sz == 2:
+            return prod[0].IsTerminal and prod[1].IsNonTerminal
+        return False
+
+    regular = all([check(p.Right, p.Left == G.startSymbol) for p in G.Productions])
+
+    return regular
 
 
+def grammarToNFA(G):
+    states = {}
+    finals = []
+    transitions = {}
+
+    for var in G.nonTerminals:
+        states[var] = len(states)
+
+    for p in G.Productions:
+        lastTerminal = p.Right[0]
+        lastState = states[p.Left]
+
+        for i, var in enumerate(p.Right):
+            if i == len(p.Right) - 1:
+                if var in G.terminals:
+                    l = len(states)
+                    states[str(var) + f'{len(states)}'] = l
+                    if l not in finals:
+                        finals.append(l)
+                    try:
+                        transitions[lastState, lastTerminal].append(l)
+                    except KeyError:
+                        transitions[lastState, lastTerminal] = [l]
+                else:
+                    try:
+                        transitions[lastState, lastTerminal].append(states[var])
+                    except KeyError:
+                        transitions[lastState, lastTerminal] = [states[var]]
+            lastTerminal = var
+
+    return NFA(len(states), finals, transitions, start=states[G.startSymbol])
+
+
+def regex_union(regex, other):
+    if regex is None:
+        return other
+
+    if other is None:
+        return regex
+
+    if regex == other:
+        return regex
+
+    return f'({regex}|{other})'
+
+
+def regex_concat(regex, other):
+    if regex is None or other is None:
+        return None
+
+    if regex == 'ε':
+        return other
+
+    if other == 'ε':
+        return regex
+
+    return f'{regex}{other}'
+
+
+def regex_star(regex):
+    if regex is None or regex == 'ε':
+        return regex
+
+    return f'({regex})*'
+
+
+def NFAToRegex(automaton: NFA):
+    B = ['ε' if i in automaton.finals else None for i in range(automaton.states)]
+    A = [[None for j in range(automaton.states)] for i in range(automaton.states)]
+
+    for i in range(automaton.states):
+        A[i][i] = 'ε'
+
+    for i in range(automaton.states):
+        for var in automaton.vocabulary:
+            try:
+                dest = automaton.transitions[i][var]
+                for d in dest:
+                    if A[i][d] == None or A[i][d] == 'ε':
+                        A[i][d] = str(var)
+                    else:
+                        A[i][d] = regex_union(A[i][d], str(var))
+            except KeyError:
+                continue
+
+    for n in range(automaton.states - 1, -1, -1):
+        B[n] = regex_concat(regex_star(A[n][n]), B[n])
+        for j in range(n):
+            A[n][j] = regex_concat(regex_star(A[n][n]), A[n][j])
+        for i in range(n):
+            B[i] = regex_union(B[i], regex_concat(A[i][n], B[n]))
+            for j in range(n):
+                A[i][j] = regex_union(A[i][j], regex_concat(A[i][n], A[n][j]))
+
+    return B[0]
+
+
+def regex_analizer(G):
+    ok = verify_regularity(G)
+    if ok:
+        automaton = grammarToNFA(G)
+        regex =  NFAToRegex(automaton)
+        print(regex)
+        return ok, State.from_nfa(automaton), regex
+    else:
+        return ok, 'empty', 'empty'
+
+
+def ll1_conflict(G: Grammar, table):
+    queue = [([G.startSymbol], None, '', False)]
+
+    def enqueue(der, ter, word, conflict, data):
+        conflict = conflict or len(data) > 1
+        for prod in data:
+            adv = der.copy()
+            adv[:1] = [s for s in prod.Right]
+            queue.append((adv, ter, word, conflict))
+
+    while queue:
+        der, ter, word, conflict = queue.pop(0)
+        if ter:
+            if ter == G.EOF:
+                if conflict:
+                    return word
+                continue
+            if der[0] != ter:
+                enqueue(der, ter, word, conflict, table[der[0]][ter])
+                continue
+            der.pop(0)
+        if not der:
+            if conflict:
+                return word
+            continue
+        for symbol in table[der[0]]:
+            enqueue(der, symbol, word + str(symbol), conflict, table[der[0]][symbol])
+
+
+def action_goto_conflict(action, goto):
+    queue = [([0], None, '', False)]
+
+    def go(stack, ter, word, conflict, data):
+        conflict = conflict or len(data) > 1
+        for move in data:
+            queue.append((stack + [move], ter, word, conflict))
+
+    def enqueue(stack, ter, word, conflict, data):
+        conflict = conflict or len(data) > 1
+        reduce = [cell[1] for cell in data if cell[0] == SLR1Parser.REDUCE]
+        shift = [cell[1] for cell in data if cell[0] == SLR1Parser.SHIFT]
+        for prod in reduce:
+            new_stack = stack.copy()
+            if len(prod.Right):
+                new_stack = new_stack[:-len(prod.Right)]
+            go(new_stack, ter, word, conflict, goto[new_stack[-1]][prod.Left])
+        for s in shift:
+            queue.append((stack + [s], None, word + str(ter), conflict))
+
+    while queue:
+        stack, ter, word, conflict = queue.pop(0)
+        state = stack[-1]
+        if ter:
+            try:
+                if any([cell for cell in action[state][ter] if cell[0] == SLR1Parser.OK]) and conflict:
+                    return word
+                enqueue(stack, ter, word, conflict, action[state][ter])
+            except Exception as e:
+                print(e)
+        else:
+            for symbol in action[state]:
+                queue.append((stack.copy(), symbol, word, conflict))
+
+
+# def Parse(parser_class, G):
+#     parser = parser_class(G)
+#     html = []
+#     html.append(html.items_collection_to_html(parser.automaton))
+#     html.append(parser.automaton._repr_svg_())
+#     html.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
+#     html.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
 
 
