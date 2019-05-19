@@ -1,3 +1,4 @@
+from cmp.HtmlFormatter import HtmlFormatter as html
 from cmp.pycompiler import *
 from cmp.automata import *
 from cmp.utils import *
@@ -10,7 +11,7 @@ def read_grammar(text: str):
         s = set()
         while True:
             if not data:
-                raise StopIteration()
+                return
             if data[0] not in s:
                 yield data[0]
                 s.add(data[0])
@@ -151,6 +152,39 @@ def build_parsing_table(G, firsts, follows):
                 ok &= upd_table(M, X, t, production)
 
     return M, ok
+
+
+def metodo_predictivo_no_recursivo(G, M=None, firsts=None, follows=None):
+    if M is None:
+        if firsts is None:
+            firsts = compute_firsts(G)
+        if follows is None:
+            follows = compute_follows(G, firsts)
+        M = build_parsing_table(G, firsts, follows)
+
+    def parser(w):
+        stack = [G.EOF, G.startSymbol]
+        cursor = 0
+        output = []
+        while True:
+            top = stack.pop()
+            a = w[cursor]
+            if top.IsEpsilon:
+                pass
+            elif top.IsTerminal:
+                assert top == a, "La pila esta mal"
+                if top == G.EOF:
+                    break
+                cursor += 1
+            else:
+                output.extend(M[top][a])
+                right = list(M[top][a][0].Right)
+                right.reverse()
+                for symbol in right:
+                    stack.append(symbol)
+        return output
+
+    return parser
 
 
 def LL1(G):
@@ -438,99 +472,6 @@ class LALR1Parser(ShiftReduceParser):
                         self.ok &= upd_table(self.goto, idx, next_symbol, node[next_symbol.Name][0].idx)
 
 
-def is_null(G):
-
-    def dfs(symbol):
-        visited.update(symbol)
-        if not isinstance(symbol, Terminal):
-            for production in symbol.productions:
-                for s in production.Right:
-                    if s not in visited:
-                        dfs(s)
-                if all(s in not_null_symbol for s in production.Right):
-                    not_null_symbol.update([s])
-
-    not_null_symbol = set([t for t in G.terminals])
-    visited = set([t for t in G.terminals])
-    not_null_symbol.add(G.EOF)
-    visited.add(G.EOF)
-
-    dfs(G.startSymbol)
-
-    return G.startSymbol in not_null_symbol
-
-
-def without_recursion(G):
-    G.Productions = []
-
-    nonTerminals = G.nonTerminals.copy()
-    for nt in nonTerminals:
-        bad_prod = [Sentence(*prod.Right[1:]) for prod in nt.productions if len(prod.Right) > 0 and prod.Right[0] == nt]
-        good_prod = [Sentence(*prod.Right) for prod in nt.productions if len(prod.Right) == 0 or prod.Right[0] != nt]
-
-        if len(bad_prod) > 0:
-            nt.productions = []
-            s_new = G.NonTerminal(f"{nt.Name}<sub>0</sub>")
-
-            for prod in good_prod:
-                nt %= prod + s_new
-
-            for prod in bad_prod:
-                s_new %= prod + s_new
-
-            s_new %= G.Epsilon
-        else:
-            G.Productions.extend(nt.productions)
-
-
-def without_common_prefix(G: Grammar):
-    G.Productions = []
-    number = {nt.Name: 1 for nt in G.nonTerminals}
-
-    pending = G.nonTerminals.copy()
-    while pending:
-        nt = pending.pop()
-        prod = nt.productions.copy()
-        nt.productions = []
-        solved = []
-
-        for i, p1 in enumerate(prod):
-            if p1 not in solved:
-                solved.append(p1)
-                common = [p1]
-                prefix = len(p1.Right)
-
-                for p2 in prod[i + 1:]:
-                    sz = 0
-                    for x, y in zip(p1.Right, p2.Right):
-                        if x == y:
-                            sz += 1
-                        else:
-                            break
-                    if sz > 0:
-                        solved.append(p2)
-                        common.append(p2)
-                        prefix = min(prefix, sz)
-
-                if len(common) > 1:
-                    try:
-                        name = nt.Name[:nt.Name.index('<sub>')]
-                    except:
-                        name = nt.Name
-                    s_new = G.NonTerminal(f'{name}<sub>{number[name]}</sub>')
-                    pending.append(s_new)
-                    number[name] += 1
-
-                    nt %= Sentence(*p1.Right[:prefix]) + s_new
-                    for p3 in common:
-                        if len(p3.Right) == prefix:
-                            s_new %= G.Epsilon
-                        else:
-                            s_new %= Sentence(*p3.Right[prefix:])
-                else:
-                    nt %= p1.Right
-
-
 def derivation_tree(d):
 
     def add_trans(cur, transitions):
@@ -685,75 +626,353 @@ def regex_analizer(G):
 
 
 def ll1_conflict(G: Grammar, table):
-    queue = [([G.startSymbol], None, '', False)]
+    queue = [([G.startSymbol], '', False)]
 
-    def enqueue(der, ter, word, conflict, data):
+    def enqueue(der, word, conflict, data):
         conflict = conflict or len(data) > 1
         for prod in data:
             adv = der.copy()
             adv[:1] = [s for s in prod.Right]
-            queue.append((adv, ter, word, conflict))
+            queue.append((adv, word, conflict))
 
     while queue:
-        der, ter, word, conflict = queue.pop(0)
-        if ter:
-            if ter == G.EOF:
+        try:
+            der, word, conflict = queue.pop(0)
+            while der and der[0].IsTerminal:
+                word += str(der.pop(0))
+            if not der:
                 if conflict:
                     return word
                 continue
-            if der[0] != ter:
-                enqueue(der, ter, word, conflict, table[der[0]][ter])
-                continue
-            der.pop(0)
-        if not der:
-            if conflict:
-                return word
-            continue
-        for symbol in table[der[0]]:
-            enqueue(der, symbol, word + str(symbol), conflict, table[der[0]][symbol])
+            for symbol in table[der[0]]:
+                enqueue(der, word, conflict, table[der[0]][symbol])
+        except Exception as e:
+            print(f'FAILURE {e}')
 
 
 def action_goto_conflict(action, goto):
-    queue = [([0], None, '', False)]
+    queue = [([0], None, '', False, None)]
 
-    def go(stack, ter, word, conflict, data):
+    def detect(data):
+        reduce = [cell for cell in data if cell[0] == SLR1Parser.REDUCE]
+        shift = [cell for cell in data if cell[0] == SLR1Parser.SHIFT]
+        if reduce and shift:
+            return "Shift-Reduce"
+        if len(reduce) >= 2:
+            return "Reduce-Reduce"
+        else:
+            return "Ambiguity"
+
+    def go(stack, ter, word, conflict, c_type, data):
         conflict = conflict or len(data) > 1
         for move in data:
-            queue.append((stack + [move], ter, word, conflict))
+            queue.append((stack + [move], ter, word, conflict, c_type))
 
-    def enqueue(stack, ter, word, conflict, data):
-        conflict = conflict or len(data) > 1
+    def enqueue(stack, ter, word, conflict, c_type, data):
+        if not conflict and len(data) > 1:
+            c_type = detect(data)
+            conflict = True
         reduce = [cell[1] for cell in data if cell[0] == SLR1Parser.REDUCE]
         shift = [cell[1] for cell in data if cell[0] == SLR1Parser.SHIFT]
         for prod in reduce:
             new_stack = stack.copy()
             if len(prod.Right):
                 new_stack = new_stack[:-len(prod.Right)]
-            go(new_stack, ter, word, conflict, goto[new_stack[-1]][prod.Left])
+            go(new_stack, ter, word, conflict, c_type, goto[new_stack[-1]][prod.Left])
         for s in shift:
-            queue.append((stack + [s], None, word + str(ter), conflict))
+            queue.append((stack + [s], None, word + str(ter), conflict, c_type))
 
     while queue:
-        stack, ter, word, conflict = queue.pop(0)
+        stack, ter, word, conflict, c_type = queue.pop(0)
         state = stack[-1]
-        if ter:
-            try:
+        try:
+            if ter:
                 if any([cell for cell in action[state][ter] if cell[0] == SLR1Parser.OK]) and conflict:
-                    return word
-                enqueue(stack, ter, word, conflict, action[state][ter])
-            except Exception as e:
-                print(e)
+                    return word, c_type
+                enqueue(stack, ter, word, conflict, c_type, action[state][ter])
+            else:
+                for symbol in action[state]:
+                    queue.append((stack.copy(), symbol, word, conflict, c_type))
+        except Exception as e:
+            print(f'FAILURE {e}')
+
+
+def remove_epsilon(G):
+    new_p = {nt: set() for nt in G.nonTerminals}
+    epsilon = set()
+
+    sz = 0
+    change = True
+    while change:
+        for p in G.Productions:
+            if all([s in epsilon for s in p.Right]):
+                epsilon.add(p.Left)
+        n = len(epsilon)
+        change = (n != sz)
+        sz = n
+
+    for prod in G.Productions:
+        if len(prod.Right):
+            if any([s in prod.Right for s in epsilon]):
+                start = {G.Epsilon}
+                for s in prod.Right:
+                    new = {p + s for p in start}
+                    if s in epsilon:
+                        start.update(new)
+                    else:
+                        start = new
+                new_p[prod.Left].update(start - {G.Epsilon})
+        new_p[prod.Left].add(prod.Right)
+
+    G.Productions = []
+    for nt in G.nonTerminals:
+        nt.productions = []
+        for p in new_p[nt]:
+            nt %= p
+
+    if G.startSymbol in epsilon:
+        G.startSymbol %= G.Epsilon
+
+
+def remove_unit(G):
+    new_p = {nt: set() for nt in G.nonTerminals}
+    unit = set()
+
+    for p in G.Productions:
+        if len(p.Right) == 1 and p.Right[0].IsNonTerminal:
+            unit.add(p)
         else:
-            for symbol in action[state]:
-                queue.append((stack.copy(), symbol, word, conflict))
+            new_p[p.Left].add(p.Right)
+
+    change = True
+    while change:
+        change = False
+        for u in unit:
+            sz = len(new_p[u.Left])
+            new_p[u.Left].update(new_p[u.Right[0]])
+            change = change or (sz != len(new_p[u.Left]))
+
+    G.Productions = []
+    for nt in G.nonTerminals:
+        nt.productions = []
+        for p in new_p[nt]:
+            nt %= p
 
 
-# def Parse(parser_class, G):
-#     parser = parser_class(G)
-#     html = []
-#     html.append(html.items_collection_to_html(parser.automaton))
-#     html.append(parser.automaton._repr_svg_())
-#     html.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
-#     html.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
+def remove_nullity(G):
+
+    def dfs(symbol):
+        visited.add(symbol)
+        if not isinstance(symbol, Terminal):
+            for production in symbol.productions:
+                for s in production.Right:
+                    if s not in visited:
+                        dfs(s)
+                if all(s in not_null_symbol for s in production.Right):
+                    not_null_symbol.add(symbol)
+        else:
+            not_null_symbol.add(symbol)
+
+    not_null_symbol = set()
+    visited = set()
+
+    while True:
+        sz = len(not_null_symbol)
+        dfs(G.startSymbol)
+        visited.clear()
+        if sz == len(not_null_symbol):
+            break
+
+    productions = set([p for p in G.Productions if p.Left in not_null_symbol])
+    G.Productions = []
+    remove = [nt for nt in G.nonTerminals if nt not in not_null_symbol]
+    for nt in remove:
+        G.nonTerminals.remove(nt)
+    remove = [t for t in G.terminals if t not in not_null_symbol]
+    for t in remove:
+        G.terminals.remove(t)
+    for nt in G.nonTerminals:
+        nt.productions = []
+
+    for p in productions:
+        if all([s in not_null_symbol for s in p.Right]):
+            p.Left %= p.Right
+
+    return G.startSymbol in not_null_symbol
+
+
+def remove_recursion(G):
+    G.Productions = []
+
+    nonTerminals = G.nonTerminals.copy()
+    for nt in nonTerminals:
+        bad_prod = [Sentence(*prod.Right[1:]) for prod in nt.productions if len(prod.Right) > 0 and prod.Right[0] == nt]
+        good_prod = [Sentence(*prod.Right) for prod in nt.productions if len(prod.Right) == 0 or prod.Right[0] != nt]
+
+        if len(bad_prod) > 0:
+            nt.productions = []
+            s_new = G.NonTerminal(f"{nt.Name}<sub>0</sub>")
+
+            for prod in good_prod:
+                nt %= prod + s_new
+
+            for prod in bad_prod:
+                s_new %= prod + s_new
+
+            s_new %= G.Epsilon
+        else:
+            G.Productions.extend(nt.productions)
+
+
+def remove_common_prefix(G: Grammar):
+    G.Productions = []
+    number = {nt.Name: 1 for nt in G.nonTerminals}
+
+    pending = G.nonTerminals.copy()
+    while pending:
+        nt = pending.pop()
+        prod = nt.productions.copy()
+        nt.productions = []
+        solved = []
+
+        for i, p1 in enumerate(prod):
+            if p1 not in solved:
+                solved.append(p1)
+                common = [p1]
+                prefix = len(p1.Right)
+
+                for p2 in prod[i + 1:]:
+                    sz = 0
+                    for x, y in zip(p1.Right, p2.Right):
+                        if x == y:
+                            sz += 1
+                        else:
+                            break
+                    if sz > 0:
+                        solved.append(p2)
+                        common.append(p2)
+                        prefix = min(prefix, sz)
+
+                if len(common) > 1:
+                    try:
+                        name = nt.Name[:nt.Name.index('<sub>')]
+                    except:
+                        name = nt.Name
+                    s_new = G.NonTerminal(f'{name}<sub>{number[name]}</sub>')
+                    pending.append(s_new)
+                    number[name] += 1
+
+                    nt %= Sentence(*p1.Right[:prefix]) + s_new
+                    for p3 in common:
+                        if len(p3.Right) == prefix:
+                            s_new %= G.Epsilon
+                        else:
+                            s_new %= Sentence(*p3.Right[prefix:])
+                else:
+                    nt %= p1.Right
+
+
+def clean_grammar(G):
+    remove_epsilon(G)
+    remove_unit(G)
+    remove_nullity(G)
+    remove_recursion(G)
+    remove_common_prefix(G)
+
+
+def make_tree(text, w, parser_name):
+    try:
+        G = read_grammar(text)
+        w = list(map(lambda x: ([s for s in G.nonTerminals if s.Name == x] + [s for s in G.terminals if s.Name == x])[0], w.split())) + [G.EOF]
+
+        if parser_name == 'LL1':
+            is_LL1, M, firsts, follows = LL1(G)
+            if is_LL1:
+                return derivation_tree(metodo_predictivo_no_recursivo(M, firsts, follows)(w))
+            else:
+                return '<h1> Grammar is not LL(1) <h1>'
+        else:
+            d = {'SLR(1)':SLR1Parser, 'LR(1)': LR1Parser, 'LALR(1)': LALR1Parser}
+            parser = d[parser_name](G)
+            no_conflict, _, _ = parser.ok, parser.action, parser.goto
+            if no_conflict:
+                d = parser(w)
+                d.reverse()
+                return derivation_tree(d)
+            else:
+                return '<h1> Grammar is not %s <h1>' % parser_name
+
+    except Exception as e:
+        return "<h1> Unexpected Error (%s) </h1>" % e
+
+
+def analize_grammar(text):
+    try:
+        values = []
+        G = read_grammar(text)
+        GG = read_grammar(text)
+
+        clean_grammar(GG)
+
+        values.append(html.grammar_to_html(G))
+        values.append(html.grammar_to_html(GG))
+
+        # --------- LL1 Analysis ---------------------
+        is_LL1, M, firsts, follows = LL1(G)
+
+        values.append(html.firsts_to_html(G, firsts))
+        values.append(html.follows_to_html(G, follows))
+        values.append(html.draw_table(M, 'Symbol', G.terminals + [G.EOF], '%s'))
+
+        if not is_LL1:
+            conflict = ll1_conflict(G, M)
+
+        values.append('Grammar is %s LL(1) %s' % (['not', ''][is_LL1], [f'-- conflict: {conflict}', ''][is_LL1]))
+        # ---------------------------------------------
+
+        # ----------SHIFT-REDUCE-PARSERS---------------------
+        values.append(html.grammar_to_html(G.AugmentedGrammar(True)))
+
+        shift_reduce_parser = [SLR1Parser, LR1Parser, LALR1Parser]
+        parser_name = ['SLR(1)', 'LR(1)', 'LALR(1)']
+
+        for parser_class, name in zip(shift_reduce_parser, parser_name):
+            parser = parser_class(G)
+            no_conflict, action, goto = parser.ok, parser.action, parser.goto
+
+            values.append(html.items_collection_to_html(parser.automaton))
+            values.append(parser.automaton._repr_svg_())
+            values.append(html.draw_table(action, 'ACTION', parser.Augmented.terminals + [parser.Augmented.EOF], 'I<sub>%s</sub>'))
+            values.append(html.draw_table(goto, 'GOTO', parser.Augmented.nonTerminals, 'I<sub>%s</sub>'))
+
+            if not no_conflict:
+                conflict = action_goto_conflict(action, goto)
+
+            values.append('Grammar is %s %s %s' % (['not', ''][no_conflict], name, [f'-- conflict: {conflict}', ''][no_conflict]))
+        # ---------------------------------------------
+
+        # ----------------Regularity-------------------
+        is_regular, automaton, regex = regex_analizer(G)
+        values.append('Grammar is %s Regular' % ['not', ''][is_regular])
+        if is_regular:
+            values.append(automaton._repr_svg_())
+        else:
+            values.append(automaton)
+        values.append(regex)
+        # ---------------------------------------------
+
+        values.append('')
+        return values
+    except Exception as e:
+        return ["<h1> Unexpected Error (%s) </h1>" % e]
+
+
+
+
+
+
+
+
+
 
 

@@ -1,7 +1,6 @@
-from cmp.pycompiler import Symbol, Epsilon, Sentence, Production, Grammar, Item
-from cmp.functions import ShiftReduceParser
+from cmp.pycompiler import Symbol, Epsilon, Sentence, Production, Item
+from cmp.utils import ShiftReduceParser
 from cmp.automata import State
-from pprint import pprint
 
 
 class HtmlFormatter:

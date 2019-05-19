@@ -64,6 +64,10 @@
         justify-content: left;
         align-items: flex-start;
       }
+      div.divisions{
+        display: flex;
+        justify-content: space-around;
+      }
       div.containerDiv{
         overflow-x: auto;
       }
@@ -139,16 +143,25 @@
     </style>
   </head>
   <body>
-    <div class="section" title="Grammar">
-      <h1>Gram&aacute;tica</h1>
-      <div class="sub">
+    <div class="section">
+      <h1>Grammar</h1>
+      <div class="divisions">
+        <div class="sub">
+        <h2>Original</h2>
           %s
       </div>
-      <div class="last">
-        <h2>Gram&aacute;tica sin recursividad izquierda, prefijos comunes y produciones innecesarias</h2>
-        <div class="last">
+      <div class="sub">
+        <h2>nnecesarias</h2>
           %s
         </div>
+      </div>
+    </div>
+    <div class="section" title="Grammar">
+      <h1>Gram&aacute;tica</h1>
+      
+      <div class="last">
+        <h2>Gram&aacute;tica sin recursividad izquierda, prefijos comunes y produciones innecesarias</h2>
+        
       </div>
     </div>
     <div class="section">
