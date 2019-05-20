@@ -1,0 +1,232 @@
+footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  margin-top: 20px;
+}
+
+.list-item {
+  display: inline-block;
+  margin-right: 10px;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: all 1s;
+}
+.fade-enter,
+.fade-leave-to {
+  opacity: 0;
+  transform: rotate(45deg) translateY(-30px);
+}
+.fade-move {
+  transition: transform 1s;
+}
+.fade-leave-active {
+  position: absolute;
+}
+
+.button {
+  border-radius: 4px;
+  background-color: #4800ff;
+  border: none;
+  color: #ffffff;
+  text-align: center;
+  font-size: 15px;
+  width: 110px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 20px;
+}
+
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.button span:after {
+  content: "\00bb";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.button:hover span {
+  padding-right: 25px;
+}
+
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.textarea {
+  text-align: center;
+  font-size: 15px;
+  width: 610px;
+  height: 200px;
+  cursor: pointer;
+  margin: 5px;
+  margin-top: 80px;
+}
+div.divisions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  white-space: nowrap;
+  /* Set the fixed height of the footer here */
+  /* height: 60px; */
+  line-height: 60px; /* Vertically center the text there */
+  text-align: center;
+}
+
+table {
+  text-align: center;
+  font: normal 12px/150% Arial, Helvetica, sans-serif;
+  background: #fff;
+  overflow: hidden;
+  border: 1px solid #006699;
+  border-radius: 3px 3px 3px 3px;
+  -moz-border-radius: 3px 3px 3px 3px;
+  -webkit-border-radius: 3px 3px 3px 3px;
+}
+table td,
+table th {
+  text-align: center;
+  padding: 3px 5px;
+}
+table thead th {
+  background: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    color-stop(0.05, #006699),
+    color-stop(1, #00557f)
+  );
+  background: -moz-linear-gradient(center top, #006699 5%, #00557f 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#006699', endColorstr='#00557F');
+  color: #ffffff;
+  font-size: 20;
+  font-weight: bold;
+  border-left: 1px solid #0070a8;
+}
+table thead th:first-child {
+  border: none;
+}
+table tbody td {
+  color: #00496b;
+  border-left: 1px solid #e1eef4;
+  font-size: 16px;
+  font-weight: normal;
+}
+table tbody td.errorCell {
+  color: #00496b;
+  background: rgb(150, 100, 100);
+  border: thin solid #0070a8;
+  font-size: 16px;
+  font-weight: normal;
+}
+table tbody .alt td {
+  background: #e1eef4;
+  color: #00496b;
+}
+table tbody .alt td.errorCell {
+  background: rgb(150, 100, 100);
+  border: thin solid #0070a8;
+  color: #00496b;
+}
+table tbody td:first-child {
+  font-weight: bold;
+  border-left: none;
+}
+table tbody tr:last-child td {
+  border-bottom: none;
+}
+div.horizontal {
+  display: flex;
+  justify-content: left;
+  align-items: flex-start;
+}
+div.containerDiv {
+  overflow-x: auto;
+}
+div.section {
+  border-radius: 35px 0 35px 0;
+  -moz-border-radius: 35px 0 35px 0;
+  -webkit-border-radius: 35px 0 35px 0;
+  border: thin solid #123456;
+  padding: 8pt;
+  margin: 8pt;
+}
+div.sub {
+  border: thin solid #adadc9;
+  padding: 8pt;
+  margin: 8pt;
+}
+div.last {
+  border-radius: 0 0 35px 0;
+  -moz-border-radius: 0 0 35px 0;
+  -webkit-border-radius: 0 0 35px 0;
+  border: thin solid #adadc9;
+  padding: 8pt;
+  margin: 8pt;
+}
+h1 {
+  border-radius: 35px 0 0 0;
+  -moz-border-radius: 35px 0 0 0;
+  -webkit-border-radius: 35px 0 0 0;
+  background-color: #123456;
+  color: #ffffff;
+  padding: 5pt;
+  margin: 0;
+  text-align-last: 15pt;
+}
+h2 {
+  background-color: #424242;
+  color: #ffffff;
+  padding: 7pt;
+  margin: 0;
+}
+p {
+  white-space: nowrap;
+  margin: 0;
+  padding: 0;
+}
+.grammarSymbol {
+  font-family: "Courier New", Courier, monospace;
+  color: #000066;
+  font-weight: bold;
+}
+.grammarSymbolSpecial,
+.grammarEpsilon {
+  font-family: "Courier New", Courier, monospace;
+  font-weight: bold;
+  font-style: italic;
+  color: #000066;
+}
+.grammarDot {
+  font-family: "Courier New", Courier, monospace;
+  color: #000000;
+}
+.grammarArrow {
+  font-family: "Times New Roman", Times, serif;
+  color: #000000;
+  font-weight: bold;
+  font-size: larger;
+}
+.grammarOr,
+.grammarComma {
+  font-family: "Times New Roman", Times, serif;
+  color: #000000;
+  font-weight: bold;
+  font-size: larger;
+}

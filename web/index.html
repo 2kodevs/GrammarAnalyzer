@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      content="width=device-width,initial-scale=1,minimal-ui"
+      name="viewport"
+    />
+    <!-- <link rel="stylesheet" href="css/css/fontawesome-all.css" /> -->
+    <!-- <link rel="stylesheet" href="css/materialize.css" /> -->
+    <link rel="stylesheet" href="css/app.css" />
+    <script type="text/javascript" src="/eel.js"></script>
+    <!-- <script type="text/javascript" src="js/materialize.js"></script> -->
+    <!-- <link rel="stylesheet" href="lib/codemirror.css" />
+    <script type="text/javascript" src="lib/codemirror.js"></script>
+    <script type="text/javascript" src="js/clike.js"></script> -->
+  </head>
+
+  <body>
+    <div id="root" style="position: relative">
+      <div class="divisions">
+        <div>
+          <CENTER>
+            <textarea
+              class="textarea"
+              v-model="grammar"
+              placeholder="Please insert your grammar here"
+            ></textarea>
+            <br />
+            <button class="button" @click="Analize">
+              <span>Generate analysis</span>
+            </button>
+          </CENTER>
+        </div>
+
+        <div>
+          <CENTER>
+            <textarea
+              class="textarea"
+              v-model="tree"
+              placeholder="Please insert your string here"
+            ></textarea>
+            <br />
+            <input type="radio" id="one" value="LL(1)" v-model="pickedTree" />
+            <label for="one">LL(1)</label>
+            <input
+              type="radio"
+              id="two"
+              value="SLR(1)"
+              v-model="pickedTree"
+              selected="True"
+            />
+            <label for="two">SLR(1)</label>
+            <input type="radio" id="three" value="LR(1)" v-model="pickedTree" />
+            <label for="three">LR(1)</label>
+            <input
+              type="radio"
+              id="four"
+              value="LALR(1)"
+              v-model="pickedTree"
+            />
+            <label for="four">LALR(1)</label>
+            <br />
+            <button class="button" @click="Tree">
+              <span>Generate derivation tree.</span>
+            </button>
+          </CENTER>
+        </div>
+      </div>
+
+      <div v-show="render">
+        <div v-html="htmlOutput"></div>
+      </div>
+
+      <CENTER>
+        <div v-show="!render">
+          <div v-html="treeOutput"></div>
+        </div>
+      </CENTER>
+    </div>
+
+    <footer class="border-top footer text-muted">
+      <div class="container">
+        &copy; 2019 - Grammar Analyser 1.0 - Lazaro Raul Iglesias Vera & Miguel
+        Tenorio Potrony
+      </div>
+    </footer>
+
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/main.vue.js"></script>
+  </body>
+</html>
