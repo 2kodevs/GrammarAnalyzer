@@ -12,7 +12,7 @@ To use the project, clone it or download it to your local computer.
 
 
 ### Requirements 📋
-It is necessary to have `python v-3.7.2`, [pydot](https://pypi.org/project/pydot/), [eel](https://github.com/ChrisKnott/Eel) and` chrome` or `chromium` installed to make full use of the application's functionalities.
+It is necessary to have `python v-3.7.2`, [pydot](https://pypi.org/project/pydot/), [eel](https://github.com/ChrisKnott/Eel), `graphviz` and` chrome` or `chromium` installed to make full use of the application's functionalities.
 
 
 ### Installation 🔧
