@@ -6,6 +6,7 @@ run: ## Run the proyect
 install: ## Install dependencies
 	sudo apt-get install graphviz
 	pip install pydot
+	pip install eel
 
 view: ## display the Makefile
 	@cat Makefile
